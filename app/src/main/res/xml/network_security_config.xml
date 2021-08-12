@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">https://609a908e0f5a13001721b74e.mockapi.io/</domain>
+<!--        <domain includeSubdomains="true">http://127.0.0.1:8080/</domain>-->
+    </domain-config>
+</network-security-config>
