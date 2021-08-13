@@ -1,4 +1,4 @@
-package com.promotion.android.login.viewmodel
+package com.promotion.android.login.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable

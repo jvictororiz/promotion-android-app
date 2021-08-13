@@ -1,4 +1,4 @@
-package com.promotion.android.login.viewmodel.model
+package com.promotion.android.login.ui.viewmodel.model
 
 import com.promotion.android.login.domain.model.User
 

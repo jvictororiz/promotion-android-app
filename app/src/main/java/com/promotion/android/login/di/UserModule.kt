@@ -11,7 +11,7 @@ import com.promotion.android.login.domain.repository.UserRepositoryImpl
 import com.promotion.android.login.domain.repository.contract.UserRepository
 import com.promotion.android.login.domain.usecase.UserUseCaseImpl
 import com.promotion.android.login.domain.usecase.contract.UserUseCase
-import com.promotion.android.login.viewmodel.UserViewModel
+import com.promotion.android.login.ui.viewmodel.UserViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
@@ -31,6 +31,7 @@ val usersModule = module {
             remoteDataSource = get()
         )
     }
+
     factory<UserLocalDataSource> {
         UserLocalDataSourceImpl(userDao = get())
     }

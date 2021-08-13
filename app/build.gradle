@@ -1,19 +1,16 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-parcelize'
-
 apply plugin: 'kotlin-kapt'
-
 apply plugin: 'kotlin-parcelize'
+apply plugin: 'com.google.gms.google-services'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion rootProject.ext.compile_sdk_version
     defaultConfig {
         applicationId "com.promotion.android"
-        minSdkVersion 21
-        targetSdkVersion 30
+        minSdkVersion '$min_sdk_version'
+        targetSdkVersion '$compile_sdk_version'
         versionCode 1
         versionName "1.0"
         vectorDrawables.useSupportLibrary = true
@@ -90,6 +87,7 @@ dependencies {
 
 
     implementation "com.github.bumptech.glide:glide:$glide_version"
+    implementation project(path: ':firebaseService')
     kapt "com.github.bumptech.glide:compiler:$glide_version"
 
     implementation "de.hdodenhof:circleimageview:$circleimageview_version"

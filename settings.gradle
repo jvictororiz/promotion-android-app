@@ -1,1 +1,4 @@
 include ':app'
+include ':firebaseService'
+include ':common:model'
+include ':common:component'

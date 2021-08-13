@@ -4,12 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.promotion.android.databinding.FragmentUsersBinding
 import com.promotion.android.login.domain.model.User
 import com.promotion.android.login.ui.adapter.users.UserListAdapter
-import com.promotion.android.login.viewmodel.UserViewModel
-import com.promotion.android.login.viewmodel.model.UserState
+import com.promotion.android.login.ui.viewmodel.UserViewModel
+import com.promotion.android.login.ui.viewmodel.model.UserState
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -28,7 +29,6 @@ class UserFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
-
         viewModel.stateLiveData.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is UserState.SuccessState -> stateSuccess(state.users, false)

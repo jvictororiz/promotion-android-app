@@ -1,4 +1,4 @@
-package com.promotion.android.login.viewmodel
+package com.promotion.android.login.ui.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -7,7 +7,7 @@ import com.promotion.android.base.di.builders.ResourceManager
 import com.promotion.android.login.domain.exception.NetworkException
 import com.promotion.android.login.domain.model.User
 import com.promotion.android.login.domain.usecase.contract.UserUseCase
-import com.promotion.android.login.viewmodel.model.UserState
+import com.promotion.android.login.ui.viewmodel.model.UserState
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 

@@ -1,4 +1,4 @@
-package com.promotion.android.login.viewmodel
+package com.promotion.android.login.ui.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.nhaarman.mockitokotlin2.any
@@ -10,7 +10,7 @@ import com.promotion.android.basetest.RxSchedulerRule
 import com.promotion.android.basetest.TestStateLiveData
 import com.promotion.android.login.domain.model.User
 import com.promotion.android.login.domain.usecase.contract.UserUseCase
-import com.promotion.android.login.viewmodel.model.UserState
+import com.promotion.android.login.ui.viewmodel.model.UserState
 import io.reactivex.Single
 import org.junit.After
 import org.junit.Before
