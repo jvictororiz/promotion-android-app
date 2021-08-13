@@ -1,6 +1,6 @@
 package com.promotion.android.basetest
 
-import com.promotion.android.users.viewmodel.model.UserState
+import com.promotion.android.login.viewmodel.model.UserState
 
 open class BaseViewModelTest<T> {
 

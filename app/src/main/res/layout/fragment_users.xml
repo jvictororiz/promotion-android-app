@@ -18,7 +18,7 @@
                 android:background="@color/colorPrimaryDark"
                 app:layout_constraintBottom_toTopOf="@+id/contentError"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:context=".users.ui.activity.UserActivity">
+                tools:context=".login.ui.activity.UserActivity">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"

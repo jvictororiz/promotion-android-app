@@ -3,7 +3,7 @@
     <data>
         <variable
             name="user"
-            type="com.promotion.android.users.domain.model.User" />
+            type="com.promotion.android.login.domain.model.User" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
