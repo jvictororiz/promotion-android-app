@@ -3,8 +3,6 @@ package com.promotion.android.login.data.local
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
-import com.promotion.android.login.data.local.dao.UserDao
-import com.promotion.android.login.data.local.entity.UserDB
 import com.promotion.android.login.domain.exception.DefaultException
 import io.reactivex.Completable
 import io.reactivex.Single
@@ -15,8 +13,8 @@ import org.mockito.junit.MockitoJUnitRunner
 @RunWith(MockitoJUnitRunner::class)
 class UserLocalDataSourceImplTest {
 
-    private val userDao: UserDao = mock()
-    private val localDataSource = UserLocalDataSourceImpl(userDao)
+    private val userDao: br.com.promotion.core.dao.UserDao = mock()
+    private val localDataSource = br.com.common.login.data.local.UserLocalDataSourceImpl(userDao)
 
     @Test
     fun `when call getLocalUsers with success then return dao success`() {
@@ -60,7 +58,7 @@ class UserLocalDataSourceImplTest {
     @Test
     fun `when call getLocalUsers with error then return defaultException`() {
         val expected = "Erro"
-        whenever(userDao.getAll()).then { Single.error<List<UserDB>>(Exception(expected)) }
+        whenever(userDao.getAll()).then { Single.error<List<br.com.promotion.core.entity.UserDB>>(Exception(expected)) }
 
         localDataSource.getLocalUsers()
             .test()
@@ -70,5 +68,12 @@ class UserLocalDataSourceImplTest {
             .dispose()
     }
 
-    private fun mockUsersDBResponse() = listOf(UserDB("img", "name", 1, "username"))
+    private fun mockUsersDBResponse() = listOf(
+        br.com.promotion.core.entity.UserDB(
+            "img",
+            "name",
+            1,
+            "username"
+        )
+    )
 }

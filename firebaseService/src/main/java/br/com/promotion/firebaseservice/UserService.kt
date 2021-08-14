@@ -1,7 +1,6 @@
 package br.com.promotion.firebaseservice
 
 import br.com.promotion.model.data.UserDTO
-import br.com.promotion.model.domain.User
 import io.reactivex.Completable
 import io.reactivex.Single
 

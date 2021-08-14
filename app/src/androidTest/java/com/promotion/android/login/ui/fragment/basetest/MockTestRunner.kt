@@ -6,9 +6,9 @@ import android.os.Bundle
 import android.os.StrictMode
 import androidx.room.Room
 import androidx.test.runner.AndroidJUnitRunner
-import com.promotion.android.base.di.builders.AppDatabase
-import com.promotion.android.base.di.builders.ResourceManager
-import com.promotion.android.base.di.builders.buildRetrofit
+import br.com.promotion.core.builders.AppDatabase
+import br.com.promotion.core.builders.ResourceManager
+import br.com.promotion.core.builders.buildRetrofit
 import com.promotion.android.login.di.usersModule
 import org.koin.android.ext.koin.androidApplication
 import org.koin.android.ext.koin.androidContext

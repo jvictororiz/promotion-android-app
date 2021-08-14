@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:paddingVertical="15dp"
+        android:id="@+id/body"
+        android:layout_height="wrap_content"
+        android:background="@color/darkGray">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgTop"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvMessageError"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvMessageError"
+            android:src="@drawable/ic_alert_error" />
+
+        <TextView
+            android:id="@+id/tvMessageError"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="12dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/letterMedium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_retry"
+            app:layout_constraintStart_toEndOf="@+id/imgTop"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Erro ao carregar informações, por favor, tente novamente" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_retry"
+            style="@style/ButtonBorderlessAction"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/tvMessageError"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvMessageError"
+            tools:text="Tentar" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

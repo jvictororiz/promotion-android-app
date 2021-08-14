@@ -10,8 +10,7 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.promotion.android.R
-import com.promotion.android.base.di.builders.AppDatabase
-import com.promotion.android.login.data.local.entity.UserDB
+import br.com.promotion.core.builders.AppDatabase
 import com.promotion.android.login.ui.activity.UserActivity
 import com.promotion.android.login.ui.fragment.basetest.BaseRobotTest
 import org.hamcrest.Matchers.not
@@ -51,8 +50,8 @@ class UserFragmentRobot : BaseRobotTest<UserActivity>(), KoinTest {
     }
 
     fun injectUsersLocalDatabase() = apply {
-        val myType = object : TypeToken<List<UserDB>>() {}.type
-        val users = Gson().fromJson<List<UserDB>>(readJson(PATH_USERS), myType)
+        val myType = object : TypeToken<List<br.com.promotion.core.entity.UserDB>>() {}.type
+        val users = Gson().fromJson<List<br.com.promotion.core.entity.UserDB>>(readJson(PATH_USERS), myType)
         database.userDao().saveAll(users).subscribe()
     }
 

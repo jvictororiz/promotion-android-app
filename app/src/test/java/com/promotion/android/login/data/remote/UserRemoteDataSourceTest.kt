@@ -3,7 +3,6 @@ package com.promotion.android.login.data.remote
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
-import com.promotion.android.login.data.local.entity.UserDB
 import com.promotion.android.login.data.remote.dto.response.UserDto
 import com.promotion.android.login.data.remote.service.UserService
 import com.promotion.android.login.domain.exception.DefaultException
@@ -34,7 +33,7 @@ class UserRemoteDataSourceTest {
     @Test
     fun `when call getAllUserDto with error then not return users`() {
         val expected = "Erro"
-        whenever(userService.getUsers()).then { Single.error<List<UserDB>>(Exception(expected)) }
+        whenever(userService.getUsers()).then { Single.error<List<br.com.promotion.core.entity.UserDB>>(Exception(expected)) }
 
         remoteDataSource.getAllUserDto()
             .test()

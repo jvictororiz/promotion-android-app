@@ -4,6 +4,8 @@
     <bytecodeTargetLevel target="1.8">
       <module name="promotion-android.app" target="11" />
       <module name="promotion-android.common.component" target="11" />
+      <module name="promotion-android.core" target="11" />
+      <module name="promotion-android.feature.login" target="11" />
       <module name="promotion-android.firebaseService" target="11" />
     </bytecodeTargetLevel>
   </component>

@@ -4,7 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
-import com.promotion.android.base.di.builders.ResourceManager
+import br.com.promotion.core.builders.ResourceManager
 import com.promotion.android.basetest.BaseViewModelTest
 import com.promotion.android.basetest.RxSchedulerRule
 import com.promotion.android.basetest.TestStateLiveData

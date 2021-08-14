@@ -5,10 +5,8 @@ import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.verifyZeroInteractions
 import com.nhaarman.mockitokotlin2.whenever
-import com.promotion.android.login.data.remote.dto.response.UserDto
-import com.promotion.android.login.data.local.contract.UserLocalDataSource
-import com.promotion.android.login.data.local.entity.UserDB
 import com.promotion.android.login.data.remote.contract.UserRemoteDataSource
+import com.promotion.android.login.data.remote.dto.response.UserDto
 import com.promotion.android.login.domain.exception.DefaultException
 import com.promotion.android.login.domain.model.User
 import io.reactivex.Completable
@@ -21,7 +19,7 @@ import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
 class UserRepositoryTest {
-    private val localDataSource: UserLocalDataSource = mock()
+    private val localDataSource: br.com.common.login.data.local.contract.UserLocalDataSource = mock()
     private val remoteDataSource: UserRemoteDataSource = mock()
     private val repository = UserRepositoryImpl(localDataSource, remoteDataSource)
 
@@ -77,7 +75,7 @@ class UserRepositoryTest {
     @Test
     fun `when call getLocalUsers with error then not convert dto and not call getLocalUsers`() {
         val errorExpected = DefaultException("erro")
-        whenever(remoteDataSource.getAllUserDto()).then { Single.error<List<UserDB>>(errorExpected) }
+        whenever(remoteDataSource.getAllUserDto()).then { Single.error<List<br.com.promotion.core.entity.UserDB>>(errorExpected) }
 
         repository.fetchAll()
             .test()
@@ -89,5 +87,12 @@ class UserRepositoryTest {
 
     private fun mockUsersResponse() = listOf(User("img", "name", 1, "username"))
     private fun mockUsersDtoResponse() = listOf(UserDto("img", "name", 1, "username"))
-    private fun mockUsersDBResponse() = listOf(UserDB("img", "name", 1, "username"))
+    private fun mockUsersDBResponse() = listOf(
+        br.com.promotion.core.entity.UserDB(
+            "img",
+            "name",
+            1,
+            "username"
+        )
+    )
 }
