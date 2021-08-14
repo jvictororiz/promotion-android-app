@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_login"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/text_login_title"
+            android:textSize="@dimen/text_dimen_03"
+            app:layout_constraintBottom_toTopOf="@id/et_email"
+            android:textColor="#9F9C9C"
+            android:layout_marginStart="@dimen/marginStart"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view_highlight"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/text_login"
+            app:layout_constraintStart_toStartOf="@id/text_login"
+            app:layout_constraintEnd_toEndOf="@id/text_login"/>
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/shape_round_borders"
+            android:hint="@string/edit_text_email"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:layout_marginStart="@dimen/marginStart"
+            android:layout_marginEnd="@dimen/text_dimen_02"
+            android:minLines="1"
+            android:padding="15dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_login" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_password"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_round_borders"
+            android:hint="@string/edit_text_password"
+            android:inputType="numberPassword"
+            android:maxLines="1"
+            android:minLines="1"
+            app:layout_constraintVertical_bias="1"
+            android:layout_marginTop="@dimen/dimen_margin_02"
+            android:padding="@dimen/padding_01"
+            app:layout_constraintLeft_toLeftOf="@id/et_email"
+            app:layout_constraintRight_toRightOf="@+id/et_email"
+            app:layout_constraintTop_toBottomOf="@id/et_email" />
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/radio_button_remember_password"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:padding="5dp"
+            android:layout_marginStart="@dimen/marginStart"
+            android:layout_marginTop="@dimen/dimen_margin_02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_password" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_remember_passowrd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            app:layout_constraintStart_toEndOf="@id/radio_button_remember_password"
+            app:layout_constraintTop_toTopOf="@id/radio_button_remember_password"
+            app:layout_constraintBottom_toBottomOf="@id/radio_button_remember_password"
+            android:text="@string/text_remember_passowrd"
+            android:textSize="@dimen/text_dimen_02"
+            android:textColor="#514F4F"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_forgot_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/radio_button_remember_password"
+            app:layout_constraintBottom_toBottomOf="@id/radio_button_remember_password"
+            android:text="@string/text_forgot_password"
+            android:layout_marginEnd="@dimen/dimen_margin_02"
+            android:textSize="@dimen/text_dimen_02"
+            android:textColor="#514F4F"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

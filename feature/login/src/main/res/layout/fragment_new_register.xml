@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_constraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/text_register"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginStart"
+            android:text="@string/text_title_new_register"
+            android:textColor="#9F9C9C"
+            android:textSize="@dimen/text_dimen_03"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view_highlight"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toEndOf="@id/text_register"
+            app:layout_constraintStart_toStartOf="@id/text_register"
+            app:layout_constraintTop_toBottomOf="@id/text_register" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_register_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginStart"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="@dimen/marginStart"
+            android:background="@drawable/shape_round_borders"
+            android:hint="@string/edit_text_email"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:minLines="1"
+            android:padding="15dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_register" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_password"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_margin_02"
+            android:background="@drawable/shape_round_borders"
+            android:hint="@string/edit_text_password"
+            android:inputType="numberPassword"
+            android:maxLines="1"
+            android:minLines="1"
+            android:padding="@dimen/padding_01"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/et_register_email"
+            app:layout_constraintRight_toRightOf="@+id/et_register_email"
+            app:layout_constraintTop_toBottomOf="@id/et_register_email"
+            app:layout_constraintVertical_bias="1" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

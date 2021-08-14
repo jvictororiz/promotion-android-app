@@ -3,6 +3,6 @@
     package="br.com.common.login">
 
     <application>
-        <activity android:name=".ui.activity.UserActivity" />
+        <activity android:name=".ui.activity.AuthenticationActivity" />
     </application>
 </manifest>

@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="letterMedium"> 16sp</dimen>
+    <dimen name="marginStart"> 16dp</dimen>
+    <dimen name="marginleft"> 16dp</dimen>
+    <dimen name="text_dimen_02"> 16sp</dimen>
+    <dimen name="text_dimen_03"> 24sp</dimen>
+    <dimen name="text_dimen_04"> 32sp</dimen>
+    <dimen name="padding_01"> 16dp</dimen>
+    <dimen name="dimen_margin_01"> 8dp</dimen>
+    <dimen name="dimen_margin_02"> 16dp</dimen>
+    <dimen name="dimen_margin_03"> 32dp</dimen>
+    <dimen name="dimen_margin_04"> 40dp</dimen>
 </resources>
