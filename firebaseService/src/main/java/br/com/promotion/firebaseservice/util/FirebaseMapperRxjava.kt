@@ -21,16 +21,6 @@ internal fun <TaskType> Task<TaskType>.complete(emitter: CompletableEmitter) {
         .addOnFailureListener(emitter::onError)
 }
 
-internal fun <TaskType> Task<TaskType>.singleAny() = Single.create<Any> { emitter ->
-    addOnSuccessListener {
-        if (result != null) {
-            emitter.onSuccess(0)
-        } else {
-            throw ResultNullNotExpected(null)
-        }
-    }.addOnFailureListener(emitter::onError)
-}
-
 internal inline fun <reified T> Task<DocumentSnapshot>.single() = Single.create<T> { emitter ->
     addOnSuccessListener { dataSnapshot ->
         val result = dataSnapshot.toObject(T::class.java)
@@ -42,7 +32,7 @@ internal inline fun <reified T> Task<DocumentSnapshot>.single() = Single.create<
     }.addOnFailureListener(emitter::onError)
 }
 
-internal fun Completable.mapperExceptions() =
+internal fun Completable.handleDefaultErrors() =
     onErrorResumeNext {
         return@onErrorResumeNext Completable.error(
             when (it) {
@@ -52,7 +42,7 @@ internal fun Completable.mapperExceptions() =
         )
     }
 
-internal fun <T> Single<T>.mapperExceptions() =
+internal fun <T> Single<T>.handleDefaultErrors() =
     onErrorResumeNext {
         return@onErrorResumeNext Single.error<T>(
             when (it) {

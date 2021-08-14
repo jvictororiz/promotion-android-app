@@ -4,6 +4,7 @@ import br.com.promotion.firebaseservice.UserService
 import br.com.promotion.firebaseservice.extension.InternetConnectionException
 import br.com.promotion.firebaseservice.extension.UserAlreadyRegistered
 import br.com.promotion.firebaseservice.util.complete
+import br.com.promotion.firebaseservice.util.handleDefaultErrors
 import br.com.promotion.firebaseservice.util.single
 import br.com.promotion.model.data.UserDTO
 import com.google.firebase.auth.FirebaseAuth
@@ -21,6 +22,7 @@ class UserServiceImpl(
         return authentication
             .signInWithEmailAndPassword(email, password)
             .complete()
+            .handleDefaultErrors()
     }
 
     override fun registerUser(user: UserDTO): Completable = Completable.create { emitter ->
@@ -41,11 +43,26 @@ class UserServiceImpl(
         }
     }
 
+    override fun sendPasswordResetEmail(email: String): Completable {
+        return authentication
+            .sendPasswordResetEmail(email)
+            .complete()
+            .handleDefaultErrors()
+    }
+
     override fun updateUser(userDTO: UserDTO): Completable {
-        return database.document(userDTO.email).set(userDTO).complete()
+        return database
+            .document(userDTO.email)
+            .set(userDTO)
+            .complete()
+            .handleDefaultErrors()
     }
 
     override fun getUser(email: String): Single<UserDTO> {
-        return database.document(email).get().single()
+        return database
+            .document(email)
+            .get()
+            .single<UserDTO>()
+            .handleDefaultErrors()
     }
 }

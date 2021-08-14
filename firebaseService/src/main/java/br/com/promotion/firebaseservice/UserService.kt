@@ -9,4 +9,5 @@ interface UserService {
     fun registerUser(user: UserDTO): Completable
     fun getUser(email: String): Single<UserDTO>
     fun updateUser(userDTO: UserDTO): Completable
+    fun sendPasswordResetEmail(email: String): Completable
 }
