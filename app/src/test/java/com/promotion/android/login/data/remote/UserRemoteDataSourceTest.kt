@@ -33,7 +33,7 @@ class UserRemoteDataSourceTest {
     @Test
     fun `when call getAllUserDto with error then not return users`() {
         val expected = "Erro"
-        whenever(userService.getUsers()).then { Single.error<List<br.com.promotion.core.entity.UserDB>>(Exception(expected)) }
+        whenever(userService.getUsers()).then { Single.error<List<br.com.promotion.lib.entity.UserDB>>(Exception(expected)) }
 
         remoteDataSource.getAllUserDto()
             .test()

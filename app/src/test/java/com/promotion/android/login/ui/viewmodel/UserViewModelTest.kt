@@ -4,7 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
-import br.com.promotion.core.builders.ResourceManager
+import br.com.promotion.lib.builders.ResourceManager
 import com.promotion.android.basetest.BaseViewModelTest
 import com.promotion.android.basetest.RxSchedulerRule
 import com.promotion.android.basetest.TestStateLiveData
@@ -30,7 +30,7 @@ class UserViewModelTest : BaseViewModelTest<UserState>() {
 
 
     private val useCase: UserUseCase = mock()
-    private val resourceManager: ResourceManager = mock()
+    private val resourceManager: br.com.promotion.lib.builders.ResourceManager = mock()
 
     private lateinit var viewModel: UserViewModel
     private var stateLiveData = TestStateLiveData<UserState>()

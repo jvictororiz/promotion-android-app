@@ -3,6 +3,7 @@
 buildscript {
     ext {
         min_sdk_version = 21
+        lottieVersion = "3.4.0"
         compile_sdk_version = 30
         build_tools_version = "30.0.3"
         kotlin_version = '1.5.21'

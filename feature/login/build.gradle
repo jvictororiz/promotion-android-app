@@ -42,7 +42,8 @@ android {
 dependencies {
     implementation project(path: ':common:model')
     implementation project(path: ':firebaseService')
-    implementation project(path: ':core')
+    implementation project(path: ':core:libs')
+    implementation project(path: ':core:style')
 
     implementation "androidx.core:core-ktx:$core_ktx_version"
     implementation "androidx.appcompat:appcompat:$appcompat_version"

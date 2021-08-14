@@ -6,13 +6,13 @@ import br.com.common.login.R
 import br.com.common.login.domain.exception.NetworkException
 import br.com.common.login.domain.usecase.contract.UserUseCase
 import br.com.common.login.ui.viewmodel.model.UserState
-import br.com.promotion.core.builders.ResourceManager
+import br.com.promotion.lib.builders.ResourceManager
 import br.com.promotion.model.domain.User
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
 class UserViewModel(
-    private val resource: ResourceManager,
+    private val resource: br.com.promotion.lib.builders.ResourceManager,
     private val userUseCase: UserUseCase,
     private val state: MutableLiveData<UserState>
 ) : BaseViewModel<UserState>() {

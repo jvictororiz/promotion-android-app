@@ -6,9 +6,9 @@ import android.os.Bundle
 import android.os.StrictMode
 import androidx.room.Room
 import androidx.test.runner.AndroidJUnitRunner
-import br.com.promotion.core.builders.AppDatabase
-import br.com.promotion.core.builders.ResourceManager
-import br.com.promotion.core.builders.buildRetrofit
+import br.com.promotion.lib.builders.AppDatabase
+import br.com.promotion.lib.builders.ResourceManager
+import br.com.promotion.lib.builders.buildRetrofit
 import com.promotion.android.login.di.usersModule
 import org.koin.android.ext.koin.androidApplication
 import org.koin.android.ext.koin.androidContext
@@ -47,12 +47,12 @@ class BaseApplicationTest : Application(), KoinTest {
 }
 
 val mockModule = module {
-    factory { ResourceManager(context = get()) }
+    factory { br.com.promotion.lib.builders.ResourceManager(context = get()) }
     factory { buildRetrofit((androidApplication() as BaseApplicationTest).getBaseUrl()) }
     factory {
         Room.databaseBuilder(
             androidContext(),
-            AppDatabase::class.java,
+            br.com.promotion.lib.builders.AppDatabase::class.java,
             "DATABASE_TEST"
         ).allowMainThreadQueries().build()
     }

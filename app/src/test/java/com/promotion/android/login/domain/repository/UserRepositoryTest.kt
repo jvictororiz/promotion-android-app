@@ -75,7 +75,7 @@ class UserRepositoryTest {
     @Test
     fun `when call getLocalUsers with error then not convert dto and not call getLocalUsers`() {
         val errorExpected = DefaultException("erro")
-        whenever(remoteDataSource.getAllUserDto()).then { Single.error<List<br.com.promotion.core.entity.UserDB>>(errorExpected) }
+        whenever(remoteDataSource.getAllUserDto()).then { Single.error<List<br.com.promotion.lib.entity.UserDB>>(errorExpected) }
 
         repository.fetchAll()
             .test()
@@ -88,7 +88,7 @@ class UserRepositoryTest {
     private fun mockUsersResponse() = listOf(User("img", "name", 1, "username"))
     private fun mockUsersDtoResponse() = listOf(UserDto("img", "name", 1, "username"))
     private fun mockUsersDBResponse() = listOf(
-        br.com.promotion.core.entity.UserDB(
+        br.com.promotion.lib.entity.UserDB(
             "img",
             "name",
             1,

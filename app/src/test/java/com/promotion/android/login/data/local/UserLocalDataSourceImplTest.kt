@@ -13,7 +13,7 @@ import org.mockito.junit.MockitoJUnitRunner
 @RunWith(MockitoJUnitRunner::class)
 class UserLocalDataSourceImplTest {
 
-    private val userDao: br.com.promotion.core.dao.UserDao = mock()
+    private val userDao: br.com.promotion.lib.dao.UserDao = mock()
     private val localDataSource = br.com.common.login.data.local.UserLocalDataSourceImpl(userDao)
 
     @Test
@@ -58,7 +58,7 @@ class UserLocalDataSourceImplTest {
     @Test
     fun `when call getLocalUsers with error then return defaultException`() {
         val expected = "Erro"
-        whenever(userDao.getAll()).then { Single.error<List<br.com.promotion.core.entity.UserDB>>(Exception(expected)) }
+        whenever(userDao.getAll()).then { Single.error<List<br.com.promotion.lib.entity.UserDB>>(Exception(expected)) }
 
         localDataSource.getLocalUsers()
             .test()
@@ -69,7 +69,7 @@ class UserLocalDataSourceImplTest {
     }
 
     private fun mockUsersDBResponse() = listOf(
-        br.com.promotion.core.entity.UserDB(
+        br.com.promotion.lib.entity.UserDB(
             "img",
             "name",
             1,

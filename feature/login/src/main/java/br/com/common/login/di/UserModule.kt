@@ -6,7 +6,7 @@ import br.com.common.login.data.remote.contract.UserRemoteDataSource
 import br.com.common.login.domain.usecase.UserUseCaseImpl
 import br.com.common.login.domain.usecase.contract.UserUseCase
 import br.com.common.login.ui.viewmodel.UserViewModel
-import br.com.promotion.core.builders.AppDatabase
+import br.com.promotion.lib.builders.AppDatabase
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -33,5 +33,5 @@ val usersModule = module {
         UserRemoteDataSourceImpl(service = get())
     }
 
-    factory { get<AppDatabase>().userDao() }
+    factory { get<br.com.promotion.lib.builders.AppDatabase>().userDao() }
 }
