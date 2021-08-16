@@ -10,6 +10,9 @@ import br.com.common.login.databinding.FragmentAuthenticatorBinding
 
 class AuthenticationFragment : Fragment() {
     private lateinit var binding: FragmentAuthenticatorBinding
+    private val loginFragment by lazy {
+        LoginFragment()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,30 +26,49 @@ class AuthenticationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupListeners()
-
+        startLogin()
     }
 
     private fun setupListeners(){
-        binding.btnWelcome.setOnClickListener {
-            startNewRegister()
+        with(binding){
+            textRegister.setOnClickListener {
+                startNewRegister()
+                setBackgroundColorRegister()
+            }
+            textLogin.setOnClickListener {
+                startLogin()
+            }
         }
+
+
     }
 
     private fun startLogin(){
         val transaction = activity?.supportFragmentManager?.beginTransaction()
         transaction?.replace(R.id.container_authentication_fragment, LoginFragment())
-        transaction?.disallowAddToBackStack()
         transaction?.commit()
+        setBackgroundColorLogin()
     }
 
     private fun startNewRegister(){
         val transaction = activity?.supportFragmentManager?.beginTransaction()
         transaction?.replace(R.id.container_authentication_fragment, NewRegisterFragment())
-        transaction?.disallowAddToBackStack()
         transaction?.commit()
+
     }
 
-    private fun resetPassword(){
+    private fun setBackgroundColorRegister(){
+        with(binding){
+            viewHighlightRegister.setBackgroundColor(R.drawable.shape_view_toolbar)
+            textRegister.setTextColor(resources.getColor(R.color.colorPrimaryPromotion,))
+        }
+    }
 
+    private fun setBackgroundColorLogin(){
+        with(binding){
+            viewHighlightLogin.setBackgroundColor(R.drawable.shape_view_toolbar)
+            textLogin.setTextColor(resources.getColor(R.color.colorPrimaryPromotion,))
+
+        }
     }
 }

@@ -2,7 +2,7 @@
 <resources>
     <dimen name="letterMedium"> 16sp</dimen>
     <dimen name="marginStart"> 16dp</dimen>
-    <dimen name="marginleft"> 16dp</dimen>
+    <dimen name="marginEnd"> 16dp</dimen>
     <dimen name="text_dimen_02"> 16sp</dimen>
     <dimen name="text_dimen_03"> 24sp</dimen>
     <dimen name="text_dimen_04"> 32sp</dimen>

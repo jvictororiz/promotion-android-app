@@ -9,6 +9,7 @@ import br.com.common.login.databinding.FragmentLoginBinding
 
 
 class LoginFragment : Fragment() {
+    private  var listener: ((String, String) -> Unit)? = null
     private lateinit var binding: FragmentLoginBinding
 
     override fun onCreateView(
@@ -22,6 +23,10 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    fun setOnClick(listener : (String,String) -> Unit){
+        this.listener = listener
     }
     
 }

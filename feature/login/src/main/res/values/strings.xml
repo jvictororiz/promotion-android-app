@@ -14,4 +14,5 @@
     <string name="text_title_new_register">Registrar-se</string>
     <string name="text_title_signup">Olá</string>
     <string name="text_terms_politic">Ao se registrar você concorda com as Políticas de termos e uso.</string>
+    <string name="text_button_new_register">Ainda não tem uma conta? \nRegiste-se aqui</string>
 </resources>
