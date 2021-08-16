@@ -46,12 +46,12 @@
                     android:id="@+id/myCradView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
                     app:cardCornerRadius="10dp"
                     app:cardElevation="10dp"
                     app:cardUseCompatPadding="true"
                     app:contentPaddingBottom="40dp"
                     app:contentPaddingTop="40dp"
-                    android:layout_marginTop="20dp"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/label_welcome">
@@ -86,15 +86,15 @@
             android:id="@+id/btn_welcome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="@dimen/dimen_margin_02"
+            android:layout_marginEnd="@dimen/dimen_margin_02"
             android:layout_marginBottom="@dimen/dimen_margin_03"
             android:background="@drawable/shape_button"
-            tools:text="Entrar"
             android:textColor="#fff"
-            android:layout_marginStart="@dimen/dimen_margin_02"
-            android:layout_marginEnd="@dimen/dimen_margin_02"/>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="Entrar" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

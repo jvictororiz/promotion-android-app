@@ -19,7 +19,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 
 
-        disposable = Single.timer(1500, TimeUnit.MILLISECONDS)
+        disposable = Single.timer(2000, TimeUnit.MILLISECONDS)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .doOnSuccess {

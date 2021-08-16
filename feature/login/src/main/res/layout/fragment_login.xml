@@ -2,7 +2,8 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -28,17 +29,14 @@
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/et_email"
+            style="@style/PrimaryEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
-            android:background="@drawable/shape_round_borders"
             android:hint="@string/edit_text_email"
             android:inputType="textEmailAddress"
-            android:maxLines="1"
             android:layout_marginStart="@dimen/marginStart"
             android:layout_marginEnd="@dimen/text_dimen_02"
-            android:minLines="1"
-            android:padding="15dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_login" />
 
