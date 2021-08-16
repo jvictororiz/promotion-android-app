@@ -2,6 +2,8 @@
 <resources>
     <dimen name="letterMedium"> 16sp</dimen>
     <dimen name="marginStart"> 16dp</dimen>
+    <dimen name="marginStartEditText"> 24dp</dimen>
+    <dimen name="marginEndEditText"> 24dp</dimen>
     <dimen name="marginEnd"> 16dp</dimen>
     <dimen name="text_dimen_02"> 16sp</dimen>
     <dimen name="text_dimen_03"> 24sp</dimen>
@@ -11,4 +13,5 @@
     <dimen name="dimen_margin_02"> 16dp</dimen>
     <dimen name="dimen_margin_03"> 32dp</dimen>
     <dimen name="dimen_margin_04"> 40dp</dimen>
+    <dimen name="dimen_drawable_padding"> 10dp</dimen>
 </resources>

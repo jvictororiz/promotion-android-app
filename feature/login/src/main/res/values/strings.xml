@@ -13,6 +13,8 @@
     <string name="text_enter_login">Entrar</string>
     <string name="text_title_new_register">Registrar-se</string>
     <string name="text_title_signup">Olá</string>
-    <string name="text_terms_politic">Ao se registrar você concorda com as Políticas de termos e uso.</string>
+    <string name="text_terms_politic">Ao se registrar você concorda com as \nPolíticas de termos e uso.</string>
     <string name="text_button_new_register">Ainda não tem uma conta? \nRegiste-se aqui</string>
+    <string name="text_reset_password_title">Esqueceu sua senha?</string>
+    <string name="text_subtitle_reset_password">Ao selecionar redefinir senha um e-mail será enviado a você</string>
 </resources>

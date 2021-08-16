@@ -6,68 +6,74 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/et_email"
             style="@style/PrimaryEditText"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginStart="@dimen/marginStartEditText"
+            android:layout_marginEnd="@dimen/marginEndEditText"
+            android:background="@drawable/shape_round_borders"
+            android:drawableStart="@drawable/ic_email_vector"
             android:hint="@string/edit_text_email"
             android:inputType="textEmailAddress"
-            android:layout_marginStart="@dimen/marginStart"
-            android:layout_marginEnd="@dimen/text_dimen_02"
-            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="@dimen/dimen_margin_01"
+            android:maxLines="1"
+            android:drawablePadding="@dimen/dimen_drawable_padding"
+            android:minLines="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/et_password"
+            style="@style/PrimaryEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_margin_02"
             android:background="@drawable/shape_round_borders"
+            android:drawableStart="@drawable/ic_padlock"
+            android:drawablePadding="@dimen/dimen_drawable_padding"
             android:hint="@string/edit_text_password"
             android:inputType="numberPassword"
             android:maxLines="1"
             android:minLines="1"
-            app:layout_constraintVertical_bias="1"
-            android:layout_marginTop="@dimen/dimen_margin_02"
-            android:padding="@dimen/padding_01"
             app:layout_constraintLeft_toLeftOf="@id/et_email"
             app:layout_constraintRight_toRightOf="@+id/et_email"
             app:layout_constraintTop_toBottomOf="@id/et_email" />
 
         <androidx.appcompat.widget.AppCompatCheckBox
             android:id="@+id/radio_button_remember_password"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:padding="5dp"
-            android:layout_marginStart="@dimen/marginStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimen_margin_02"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@id/et_password"
             app:layout_constraintTop_toBottomOf="@id/et_password" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/text_remember_passowrd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            app:layout_constraintStart_toEndOf="@id/radio_button_remember_password"
-            app:layout_constraintTop_toTopOf="@id/radio_button_remember_password"
-            app:layout_constraintBottom_toBottomOf="@id/radio_button_remember_password"
+            android:layout_marginStart="@dimen/marginStartEditText"
             android:text="@string/text_remember_passowrd"
+            android:textColor="@color/grayVector"
             android:textSize="14sp"
-            android:textColor="#514F4F"/>
+            app:layout_constraintBottom_toBottomOf="@id/radio_button_remember_password"
+            app:layout_constraintStart_toEndOf="@id/radio_button_remember_password"
+            app:layout_constraintTop_toTopOf="@id/radio_button_remember_password" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/text_forgot_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/radio_button_remember_password"
-            app:layout_constraintBottom_toBottomOf="@id/radio_button_remember_password"
+            android:layout_marginEnd="@dimen/marginEndEditText"
             android:text="@string/text_forgot_password"
-            android:layout_marginEnd="@dimen/dimen_margin_02"
+            android:textColor="@color/grayVector"
             android:textSize="14sp"
-            android:textColor="#514F4F"/>
+            app:layout_constraintBottom_toBottomOf="@id/radio_button_remember_password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/radio_button_remember_password" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

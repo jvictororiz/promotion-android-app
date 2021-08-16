@@ -8,36 +8,51 @@
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/et_register_email"
-            android:layout_width="match_parent"
+            android:id="@+id/et_email"
+            style="@style/PrimaryEditText"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/marginStart"
-            android:layout_marginTop="40dp"
-            android:layout_marginEnd="@dimen/marginStart"
+            android:layout_marginStart="@dimen/marginStartEditText"
+            android:layout_marginEnd="@dimen/marginEndEditText"
             android:background="@drawable/shape_round_borders"
+            android:drawableStart="@drawable/ic_email_vector"
             android:hint="@string/edit_text_email"
             android:inputType="textEmailAddress"
+            android:layout_marginTop="@dimen/dimen_margin_01"
             android:maxLines="1"
+            android:drawablePadding="@dimen/dimen_drawable_padding"
             android:minLines="1"
-            android:padding="15dp"
-            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/et_password"
+            style="@style/PrimaryEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimen_margin_02"
             android:background="@drawable/shape_round_borders"
+            android:drawableStart="@drawable/ic_padlock"
+            android:drawablePadding="@dimen/dimen_drawable_padding"
             android:hint="@string/edit_text_password"
             android:inputType="numberPassword"
             android:maxLines="1"
             android:minLines="1"
-            android:padding="@dimen/padding_01"
+            app:layout_constraintLeft_toLeftOf="@id/et_email"
+            app:layout_constraintRight_toRightOf="@+id/et_email"
+            app:layout_constraintTop_toBottomOf="@id/et_email" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginStart"
+            android:layout_marginEnd="@dimen/marginEnd"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="@id/et_register_email"
-            app:layout_constraintRight_toRightOf="@+id/et_register_email"
-            app:layout_constraintTop_toBottomOf="@id/et_register_email"
-            app:layout_constraintVertical_bias="1" />
+            android:gravity="center"
+            android:text="@string/text_terms_politic"
+            app:layout_constraintTop_toBottomOf="@id/et_password"
+            android:layout_marginTop="@dimen/dimen_margin_03"
+            android:layout_marginBottom="@dimen/dimen_margin_02"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

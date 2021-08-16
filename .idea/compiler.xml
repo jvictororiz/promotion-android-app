@@ -2,6 +2,12 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.8">
+      <module name="promotion-android-app.app" target="11" />
+      <module name="promotion-android-app.common.component" target="11" />
+      <module name="promotion-android-app.core.libs" target="11" />
+      <module name="promotion-android-app.core.style" target="11" />
+      <module name="promotion-android-app.feature.login" target="11" />
+      <module name="promotion-android-app.firebaseService" target="11" />
       <module name="promotion-android.app" target="11" />
       <module name="promotion-android.common.component" target="11" />
       <module name="promotion-android.core.libs" target="11" />
