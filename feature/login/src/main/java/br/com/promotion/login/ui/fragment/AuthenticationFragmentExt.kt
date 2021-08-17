@@ -1,11 +1,13 @@
 package br.com.promotion.login.ui.fragment
 
 import android.view.View
+import androidx.annotation.StringRes
 import androidx.core.view.isVisible
 import br.com.promotion.login.R
 import br.com.promotion.login.ui.viewmodel.model.AuthenticationState
 import br.com.promotion.model.domain.User
 import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.tabs.TabLayout
 
 fun AuthenticationFragment.stateScreenResetPassword(authenticationState: AuthenticationState) {
     binding.pbLoad.isVisible = false
@@ -74,4 +76,14 @@ fun AuthenticationFragment.showError() {
 fun AuthenticationFragment.showSnackBarDialog(text: String) {
     Snackbar.make(binding.root, text, Snackbar.LENGTH_SHORT)
         .show()
+}
+
+fun TabLayout.addTab(@StringRes idText: Int, event: () -> Unit) {
+    addTab(
+        newTab().setText(idText).apply {
+            setOnClickListener {
+                event.invoke()
+            }
+        }
+    )
 }
