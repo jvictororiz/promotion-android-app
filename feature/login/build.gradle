@@ -61,6 +61,7 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:$navigation"
     implementation 'com.google.code.gson:gson:2.8.6'
     implementation "androidx.room:room-runtime:$room_version"
+    implementation project(path: ':common:component')
     kapt "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-rxjava2:$room_version"
 

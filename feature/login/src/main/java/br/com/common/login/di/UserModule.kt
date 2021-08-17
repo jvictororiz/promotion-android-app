@@ -1,37 +1,40 @@
 package br.com.common.login.di
 
 import androidx.lifecycle.MutableLiveData
+import br.com.common.login.data.local.AuthenticationLocalDataSourceImpl
+import br.com.common.login.data.local.contract.AuthenticationLocalDataSource
 import br.com.common.login.data.remote.UserRemoteDataSourceImpl
-import br.com.common.login.data.remote.contract.UserRemoteDataSource
-import br.com.common.login.domain.usecase.UserUseCaseImpl
-import br.com.common.login.domain.usecase.contract.UserUseCase
-import br.com.common.login.ui.viewmodel.UserViewModel
-import br.com.promotion.lib.builders.AppDatabase
+import br.com.common.login.data.remote.contract.AuthenticationRemoteDataSource
+import br.com.common.login.domain.repository.AuthenticationRepositoryImpl
+import br.com.common.login.domain.repository.contract.AuthenticationRepository
+import br.com.common.login.domain.usecase.AuthenticationUseCaseImpl
+import br.com.common.login.domain.usecase.contract.AuthenticationUseCase
+import br.com.common.login.ui.viewmodel.AuthenticationViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
-val usersModule = module {
+val authenticationModule = module {
     viewModel {
-        UserViewModel(
-            userUseCase = get(),
+        AuthenticationViewModel(
+            authenticationUseCase = get(),
             resource = get(),
-            state = MutableLiveData()
+            state = MutableLiveData(),
+            action = MutableLiveData()
         )
     }
-    factory<UserUseCase> { UserUseCaseImpl(repository = get()) }
-//    factory<UserRepository> {
-//        UserRepositoryImpl(
-//            localDataSource = get(),
-//            remoteDataSource = get()
-//        )
-//    }
+    factory<AuthenticationUseCase> { AuthenticationUseCaseImpl(repository = get()) }
 
-    factory<br.com.common.login.data.local.contract.UserLocalDataSource> {
-        br.com.common.login.data.local.UserLocalDataSourceImpl(userDao = get())
+    factory<AuthenticationRepository> {
+        AuthenticationRepositoryImpl(
+            localDataSource = get(),
+            remoteDataSource = get()
+        )
     }
-    factory<UserRemoteDataSource> {
+
+    factory<AuthenticationLocalDataSource> {
+        AuthenticationLocalDataSourceImpl(appPreference = get())
+    }
+    factory<AuthenticationRemoteDataSource> {
         UserRemoteDataSourceImpl(service = get())
     }
-
-    factory { get<br.com.promotion.lib.builders.AppDatabase>().userDao() }
 }

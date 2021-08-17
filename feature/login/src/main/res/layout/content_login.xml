@@ -44,7 +44,7 @@
             app:layout_constraintTop_toBottomOf="@id/et_email" />
 
         <androidx.appcompat.widget.AppCompatCheckBox
-            android:id="@+id/radio_button_remember_password"
+            android:id="@+id/checkbox_remember_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimen_margin_02"
@@ -59,9 +59,9 @@
             android:text="@string/text_remember_passowrd"
             android:textColor="@color/grayVector"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@id/radio_button_remember_password"
-            app:layout_constraintStart_toEndOf="@id/radio_button_remember_password"
-            app:layout_constraintTop_toTopOf="@id/radio_button_remember_password" />
+            app:layout_constraintBottom_toBottomOf="@id/checkbox_remember_password"
+            app:layout_constraintStart_toEndOf="@id/checkbox_remember_password"
+            app:layout_constraintTop_toTopOf="@id/checkbox_remember_password" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/text_forgot_password"
@@ -71,9 +71,9 @@
             android:text="@string/text_forgot_password"
             android:textColor="@color/grayVector"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@id/radio_button_remember_password"
+            app:layout_constraintBottom_toBottomOf="@id/checkbox_remember_password"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/radio_button_remember_password" />
+            app:layout_constraintTop_toTopOf="@id/checkbox_remember_password" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

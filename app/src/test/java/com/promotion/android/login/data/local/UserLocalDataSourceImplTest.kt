@@ -14,7 +14,7 @@ import org.mockito.junit.MockitoJUnitRunner
 class UserLocalDataSourceImplTest {
 
     private val userDao: br.com.promotion.lib.dao.UserDao = mock()
-    private val localDataSource = br.com.common.login.data.local.UserLocalDataSourceImpl(userDao)
+    private val localDataSource = br.com.common.login.data.local.AuthenticationLocalDataSourceImpl(userDao)
 
     @Test
     fun `when call getLocalUsers with success then return dao success`() {

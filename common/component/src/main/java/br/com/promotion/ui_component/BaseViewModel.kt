@@ -1,4 +1,4 @@
-package br.com.common.login.ui.viewmodel
+package br.com.promotion.ui_component
 
 import androidx.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable
