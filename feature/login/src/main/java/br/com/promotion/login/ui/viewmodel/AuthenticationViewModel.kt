@@ -2,11 +2,11 @@ package br.com.promotion.login.ui.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import br.com.promotion.lib.builders.ResourceManager
 import br.com.promotion.login.domain.usecase.contract.AuthenticationUseCase
 import br.com.promotion.login.ui.viewmodel.model.AuthenticationAction
 import br.com.promotion.login.ui.viewmodel.model.AuthenticationState
 import br.com.promotion.login.ui.viewmodel.model.AuthenticationState.LoginState
-import br.com.promotion.lib.builders.ResourceManager
 import br.com.promotion.model.domain.User
 import br.com.promotion.ui_component.BaseViewModel
 
