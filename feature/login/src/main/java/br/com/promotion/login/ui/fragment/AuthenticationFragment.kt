@@ -56,7 +56,7 @@ class AuthenticationFragment : Fragment() {
         viewModel.actionLiveData.observe(viewLifecycleOwner) {
             when (it) {
                 is AuthenticationAction.OnDoLogin -> {
-                    doOnLogin(it.remember)
+                    doOnLogin()
                 }
                 is AuthenticationAction.OnRegister -> {
                     doRegister()

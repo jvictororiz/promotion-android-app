@@ -36,12 +36,12 @@ fun AuthenticationFragment.stateLoading() {
     TODO()
 }
 
-fun AuthenticationFragment.doOnLogin(remember: Boolean) {
+fun AuthenticationFragment.doOnLogin() {
     binding.btnNext.setOnClickListener {
         val email = binding.loginInclude.etEmail.text.toString()
         val password = binding.loginInclude.etPassword.text.toString()
-        if (remember) {
-            viewModel.doOnLogin(email, password, remember)
+        if (binding.loginInclude.checkboxRememberPassword.isChecked) {
+            viewModel.doOnLogin(email, password, binding.loginInclude.checkboxRememberPassword.isChecked)
         } else {
             viewModel.doOnBiometricLogin(binding.loginInclude.checkboxRememberPassword.isChecked)
         }

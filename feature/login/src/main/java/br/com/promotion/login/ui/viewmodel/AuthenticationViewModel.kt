@@ -67,14 +67,14 @@ class AuthenticationViewModel(
                 notifyState { state.value?.setError("teste", "tentar novamente") }
             }.doOnComplete {
                 notifyAction { AuthenticationAction.ShowSuccessMessage("mensagem karina") }
-                notifyAction { AuthenticationAction.OnDoLogin() }
+                notifyAction { AuthenticationAction.OnDoLogin }
             }
             .subscribe()
     }
 
     fun tapOnNext() {
         when (state.value) {
-            is LoginState -> notifyAction { AuthenticationAction.OnDoLogin() }
+            is LoginState -> notifyAction { AuthenticationAction.OnDoLogin }
             is AuthenticationState.RegisterState -> notifyAction { AuthenticationAction.OnRegister }
             is AuthenticationState.ResetPasswordState -> notifyAction { AuthenticationAction.OnResetPassword }
         }
