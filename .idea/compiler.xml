@@ -12,6 +12,7 @@
       <module name="promotion-android.common.component" target="11" />
       <module name="promotion-android.core.libs" target="11" />
       <module name="promotion-android.core.style" target="11" />
+      <module name="promotion-android.feature.employer.home" target="11" />
       <module name="promotion-android.feature.login" target="11" />
       <module name="promotion-android.firebaseService" target="11" />
     </bytecodeTargetLevel>

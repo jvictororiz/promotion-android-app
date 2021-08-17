@@ -19,7 +19,7 @@ import org.mockito.junit.MockitoJUnitRunner
 
 @RunWith(MockitoJUnitRunner::class)
 class UserRepositoryTest {
-    private val localDataSource: br.com.common.login.data.local.contract.AuthenticationLocalDataSource = mock()
+    private val localDataSource: br.com.promotion.login.data.local.contract.AuthenticationLocalDataSource = mock()
     private val remoteDataSource: UserRemoteDataSource = mock()
     private val repository = UserRepositoryImpl(localDataSource, remoteDataSource)
 

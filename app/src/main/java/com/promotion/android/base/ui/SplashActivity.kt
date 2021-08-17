@@ -3,7 +3,7 @@ package com.promotion.android.base.ui
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import br.com.common.login.ui.activity.AuthenticationActivity
+import br.com.promotion.login.ui.activity.AuthenticationActivity
 import com.promotion.android.R
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
