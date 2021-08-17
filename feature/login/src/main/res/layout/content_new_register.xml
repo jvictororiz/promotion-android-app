@@ -8,6 +8,25 @@
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_name"
+            style="@style/PrimaryEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marginStartEditText"
+            android:layout_marginEnd="@dimen/marginEndEditText"
+            android:background="@drawable/shape_round_borders"
+            android:drawableStart="@drawable/ic_person"
+            android:hint="@string/edit_text_name"
+            android:inputType="textEmailAddress"
+            android:layout_marginTop="@dimen/dimen_margin_01"
+            android:maxLines="1"
+            android:drawablePadding="@dimen/dimen_drawable_padding"
+            android:minLines="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/et_email"
             style="@style/PrimaryEditText"
             android:layout_width="0dp"
@@ -24,7 +43,7 @@
             android:minLines="1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/et_name" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/et_password"

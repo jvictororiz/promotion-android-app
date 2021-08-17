@@ -10,6 +10,7 @@ import br.com.promotion.lib.builders.ResourceManager
 import br.com.promotion.model.domain.User
 import br.com.promotion.ui_component.BaseViewModel
 
+
 class AuthenticationViewModel(
     private val resource: ResourceManager,
     private val authenticationUseCase: AuthenticationUseCase,
@@ -66,14 +67,14 @@ class AuthenticationViewModel(
                 notifyState { state.value?.setError("teste", "tentar novamente") }
             }.doOnComplete {
                 notifyAction { AuthenticationAction.ShowSuccessMessage("mensagem karina") }
-                notifyAction { AuthenticationAction.OnDoLogin }
+                notifyAction { AuthenticationAction.OnDoLogin() }
             }
             .subscribe()
     }
 
     fun tapOnNext() {
         when (state.value) {
-            is LoginState -> notifyAction { AuthenticationAction.OnDoLogin }
+            is LoginState -> notifyAction { AuthenticationAction.OnDoLogin() }
             is AuthenticationState.RegisterState -> notifyAction { AuthenticationAction.OnRegister }
             is AuthenticationState.ResetPasswordState -> notifyAction { AuthenticationAction.OnResetPassword }
         }

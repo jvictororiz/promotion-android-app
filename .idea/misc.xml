@@ -8,11 +8,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/karin/Projetos Android Studio/promotion-android-app/core/style/src/main/res/drawable/ic_person.xml" value="0.365234375" />
         <entry key="..\:/Users/karin/Projetos Android Studio/promotion-android-app/feature/login/src/main/res/drawable/ic_email_vector.xml" value="0.3769230769230769" />
         <entry key="..\:/Users/karin/Projetos Android Studio/promotion-android-app/feature/login/src/main/res/drawable/ic_padlock.xml" value="0.3769230769230769" />
         <entry key="..\:/Users/karin/Projetos Android Studio/promotion-android-app/feature/login/src/main/res/drawable/shape_button.xml" value="0.3769230769230769" />
         <entry key="..\:/Users/karin/Projetos Android Studio/promotion-android-app/feature/login/src/main/res/drawable/shape_view_toolbar.xml" value="0.3769230769230769" />
-        <entry key="..\:/Users/karin/Projetos Android Studio/promotion-android-app/feature/login/src/main/res/layout/fragment_authenticator.xml" value="0.36186594202898553" />
+        <entry key="..\:/Users/karin/Projetos Android Studio/promotion-android-app/feature/login/src/main/res/layout/content_footer_error.xml" value="0.2758152173913043" />
+        <entry key="..\:/Users/karin/Projetos Android Studio/promotion-android-app/feature/login/src/main/res/layout/content_login.xml" value="0.2758152173913043" />
+        <entry key="..\:/Users/karin/Projetos Android Studio/promotion-android-app/feature/login/src/main/res/layout/content_new_register.xml" value="0.2758152173913043" />
+        <entry key="..\:/Users/karin/Projetos Android Studio/promotion-android-app/feature/login/src/main/res/layout/fragment_authenticator.xml" value="0.22" />
         <entry key="..\:/Users/karin/Projetos Android Studio/promotion-android-app/feature/login/src/main/res/layout/fragment_login.xml" value="0.33" />
         <entry key="..\:/Users/karin/Projetos Android Studio/promotion-android-app/feature/login/src/main/res/layout/fragment_new_register.xml" value="0.36186594202898553" />
         <entry key="..\:/Users/karin/Projetos Android Studio/promotion-android-app/feature/login/src/main/res/layout/fragment_reset_password.xml" value="0.36186594202898553" />
@@ -38,7 +42,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

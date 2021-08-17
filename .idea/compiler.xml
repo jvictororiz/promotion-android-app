@@ -6,6 +6,7 @@
       <module name="promotion-android-app.common.component" target="11" />
       <module name="promotion-android-app.core.libs" target="11" />
       <module name="promotion-android-app.core.style" target="11" />
+      <module name="promotion-android-app.feature.employer.home" target="11" />
       <module name="promotion-android-app.feature.login" target="11" />
       <module name="promotion-android-app.firebaseService" target="11" />
       <module name="promotion-android.app" target="11" />

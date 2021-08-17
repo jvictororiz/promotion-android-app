@@ -16,8 +16,9 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class AuthenticationFragment : Fragment() {
-    private lateinit var binding: FragmentAuthenticatorBinding
-    private val viewModel: AuthenticationViewModel by viewModel()
+    lateinit var binding: FragmentAuthenticatorBinding
+    val viewModel: AuthenticationViewModel by viewModel()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,27 +38,16 @@ class AuthenticationFragment : Fragment() {
         viewModel.stateLiveData.observe(viewLifecycleOwner) {
             when (it) {
                 AuthenticationState.ResetPasswordState -> {
-//                    if (it.hasError()) showError()
-//                    with(binding){
-//                        binding.pbLoad.isVisible = false
-//                    }
+                    stateScreenResetPassword(it)
                 }
-
                 is AuthenticationState.RegisterState -> {
-//                    if (it.hasError()) showError()
-//                    with(binding){
-//                        pbLoad.isVisible = false
-//                    }
+                    stateScreenRegister(it)
                 }
                 is AuthenticationState.LoginState -> {
-//                    if (it.hasError()) showError()
-//                    with(binding){
-//                        binding.pbLoad.isVisible = false
-//                    }
+                    stateScreenLogin(it)
                 }
-
                 is AuthenticationState.LoadingState -> {
-//                    binding.pbLoad.isVisible = true
+                    stateLoading()
                 }
             }
 
@@ -66,29 +56,19 @@ class AuthenticationFragment : Fragment() {
         viewModel.actionLiveData.observe(viewLifecycleOwner) {
             when (it) {
                 is AuthenticationAction.OnDoLogin -> {
-//                    if (it.remember) {
-//                        viewModel.doOnLogin(
-//                            "",
-//                            "",
-//                            binding.loginInclude.checkboxRememberPassword.isChecked
-//                        )
-//
-//                    } else {
-//                        viewModel.doOnBiometricLogin(binding.loginInclude.checkboxRememberPassword.isChecked)
-//                    }
+                    doOnLogin(it.remember)
                 }
                 is AuthenticationAction.OnRegister -> {
-                    //  viewModel.registerUser(User())
+                    doRegister()
                 }
                 is AuthenticationAction.OnResetPassword -> {
-                    viewModel.resetPassword("email")
+                    doResetPassword()
                 }
                 is AuthenticationAction.GoToHome -> {
                     findNavController()
                 }
                 is AuthenticationAction.ShowSuccessMessage -> {
-                    Snackbar.make(binding.root, it.message, Snackbar.LENGTH_SHORT)
-                        .show()
+                    showSnackBarDialog(it.message)
                 }
             }
         }
@@ -99,14 +79,14 @@ class AuthenticationFragment : Fragment() {
             btnNext.setOnClickListener {
                 viewModel.tapOnNext()
             }
-            binding.tabbar.addTab(R.string.text_login_title) {
+            tabbar.addTab(R.string.text_login_title) {
                 viewModel.tapToLogin()
             }
-            binding.tabbar.addTab(R.string.text_title_new_register) {
+            tabbar.addTab(R.string.text_title_new_register) {
                 viewModel.tapToNewRegister()
             }
 
-            binding.loginInclude.textForgotPassword.setOnClickListener {
+            loginInclude.textForgotPassword.setOnClickListener {
                 viewModel.tapOnResetPassword()
             }
         }

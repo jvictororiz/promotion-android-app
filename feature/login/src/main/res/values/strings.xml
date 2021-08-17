@@ -6,6 +6,7 @@
     <string name="app_name">Promotion</string>
     <string name="welcome_login">Seja bem vindo</string>
     <string name="edit_text_email">Email</string>
+    <string name="edit_text_name">Nome</string>
     <string name="edit_text_password">Senha</string>
     <string name="text_login_title">Login</string>
     <string name="text_remember_passowrd">Lembrar senha</string>
@@ -17,4 +18,5 @@
     <string name="text_button_new_register">Ainda não tem uma conta? \nRegiste-se aqui</string>
     <string name="text_reset_password_title">Esqueceu sua senha?</string>
     <string name="text_subtitle_reset_password">Ao selecionar redefinir senha um e-mail será enviado a você</string>
+    <string name="text_subtitle_reset_password_button">Alterar senha</string>
 </resources>
