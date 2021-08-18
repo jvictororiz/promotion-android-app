@@ -13,7 +13,7 @@ import io.reactivex.Completable
 import io.reactivex.Single
 import java.io.IOException
 
-class UserServiceImpl(
+internal class UserServiceImpl(
     private val authentication: FirebaseAuth,
     private val database: FirebaseFirestore
 ) : UserService {

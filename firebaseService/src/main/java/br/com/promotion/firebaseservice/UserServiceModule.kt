@@ -3,19 +3,9 @@ package br.com.promotion.firebaseservice
 import br.com.promotion.firebaseservice.service.UserServiceImpl
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import org.koin.core.context.loadKoinModules
 import org.koin.dsl.module
 
-
-class UserServiceModule {
-    init {
-        loadKoinModules(
-            userServiceModule
-        )
-    }
-}
-
-internal val userServiceModule = module {
+val userServiceModule = module {
     factory {
         FirebaseAuth.getInstance()
     }
