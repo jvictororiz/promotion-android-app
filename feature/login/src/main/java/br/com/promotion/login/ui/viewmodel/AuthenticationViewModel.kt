@@ -81,20 +81,23 @@ class AuthenticationViewModel(
     }
 
     fun tapToLogin() {
-        notifyState {
-            LoginState(authenticationUseCase.isRemember())
-        }
+        notifyState { LoginState() }
     }
 
+    //
     fun tapToNewRegister() {
-        notifyState {
-            AuthenticationState.RegisterState
-        }
+        notifyState { AuthenticationState.RegisterState }
     }
 
     fun tapOnResetPassword() {
-        notifyState {
-            AuthenticationState.ResetPasswordState
+        notifyState { AuthenticationState.ResetPasswordState }
+    }
+
+    fun onBackPressed() {
+        if (state.value is LoginState) {
+            notifyAction { AuthenticationAction.OnBackPressed }
+        } else {
+            notifyState { LoginState() }
         }
     }
 

@@ -8,6 +8,6 @@
     <fragment
         android:id="@+id/fragmentUser"
         android:name="br.com.promotion.login.ui.fragment.AuthenticationFragment"
-        tools:layout="@layout/fragment_authenticator" />
+        tools:layout="@layout/fragment_authentication" />
 
 </navigation>

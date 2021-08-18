@@ -4,12 +4,12 @@ sealed class AuthenticationState(
     private var hasError: Boolean = false,
     private var error: ErrorMessage? = null
 ) {
-    data class LoginState(val hasFingerprint: Boolean) : AuthenticationState()
+    data class LoginState(val hasFingerprint: Boolean = false) : AuthenticationState()
     object RegisterState : AuthenticationState()
     object ResetPasswordState : AuthenticationState()
     object LoadingState : AuthenticationState()
 
-    fun setError(message: String, buttonMessage: String) = apply{
+    fun setError(message: String, buttonMessage: String) = apply {
         this.hasError = true
         this.error = ErrorMessage(message, buttonMessage)
     }

@@ -34,6 +34,7 @@ val authenticationModule = module {
     factory<AuthenticationLocalDataSource> {
         AuthenticationLocalDataSourceImpl(appPreference = get())
     }
+
     factory<AuthenticationRemoteDataSource> {
         UserRemoteDataSourceImpl(service = get())
     }

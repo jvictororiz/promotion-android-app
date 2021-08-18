@@ -15,7 +15,6 @@
             android:layout_marginEnd="@dimen/marginEndEditText"
             android:drawableStart="@drawable/ic_person"
             android:hint="@string/edit_text_name"
-            android:inputType="textEmailAddress"
             android:layout_marginTop="@dimen/dimen_margin_01"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

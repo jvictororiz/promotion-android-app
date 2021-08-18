@@ -13,6 +13,7 @@
             android:layout_marginStart="@dimen/marginStartEditText"
             android:layout_marginTop="@dimen/dimen_margin_01"
             android:layout_marginEnd="@dimen/marginEndEditText"
+            android:enabled="true"
             android:drawableStart="@drawable/ic_email_vector"
             android:hint="@string/edit_text_email"
             android:inputType="textEmailAddress"
@@ -35,22 +36,15 @@
         <androidx.appcompat.widget.AppCompatCheckBox
             android:id="@+id/checkbox_remember_password"
             android:layout_width="wrap_content"
+            android:textColor="@color/slowGray"
+            android:paddingStart="@dimen/dimen_drawable_padding"
+            android:paddingEnd="@dimen/dimen_drawable_padding"
             android:layout_height="wrap_content"
+            android:text="@string/text_remember_passowrd"
             android:layout_marginTop="@dimen/dimen_margin_02"
             app:layout_constraintStart_toStartOf="@id/et_password"
             app:layout_constraintTop_toBottomOf="@id/et_password" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/text_remember_passowrd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dimen_margin_01"
-            android:text="@string/text_remember_passowrd"
-            android:textColor="@color/slowGray"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@id/checkbox_remember_password"
-            app:layout_constraintStart_toEndOf="@id/checkbox_remember_password"
-            app:layout_constraintTop_toTopOf="@id/checkbox_remember_password" />
 
         <androidx.appcompat.widget.AppCompatButton
             style="@style/TextButton"
@@ -63,7 +57,7 @@
             android:layout_marginTop="18dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_remember_passowrd" />
+            app:layout_constraintTop_toBottomOf="@id/checkbox_remember_password" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

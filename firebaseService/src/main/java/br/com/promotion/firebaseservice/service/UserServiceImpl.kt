@@ -13,10 +13,11 @@ import io.reactivex.Completable
 import io.reactivex.Single
 import java.io.IOException
 
-internal class UserServiceImpl(
+class UserServiceImpl(
     private val authentication: FirebaseAuth,
-    private val database: FirebaseFirestore
+    database: FirebaseFirestore
 ) : UserService {
+    private val userTable = database.collection("users")
 
     override fun doLogin(email: String, password: String): Completable {
         return authentication
@@ -29,7 +30,7 @@ internal class UserServiceImpl(
         authentication.createUserWithEmailAndPassword(
             user.email, user.password
         ).addOnSuccessListener {
-            database
+            userTable
                 .document(user.email)
                 .set(user)
                 .complete(emitter)
@@ -51,7 +52,7 @@ internal class UserServiceImpl(
     }
 
     override fun updateUser(userDTO: UserDTO): Completable {
-        return database
+        return userTable
             .document(userDTO.email)
             .set(userDTO)
             .complete()
@@ -59,7 +60,7 @@ internal class UserServiceImpl(
     }
 
     override fun getUser(email: String): Single<UserDTO> {
-        return database
+        return userTable
             .document(email)
             .get()
             .single<UserDTO>()

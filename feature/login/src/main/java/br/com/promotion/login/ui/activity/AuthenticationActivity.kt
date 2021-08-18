@@ -13,11 +13,11 @@ class AuthenticationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_authentication)
-        loadKoinModules(listOf(authenticationModule, commonModule, userServiceModule))
+        loadKoinModules(listOf(userServiceModule, commonModule, authenticationModule))
     }
 
     override fun onDestroy() {
-        unloadKoinModules(listOf(authenticationModule, commonModule, userServiceModule))
+        unloadKoinModules(listOf(commonModule, userServiceModule, authenticationModule))
         super.onDestroy()
     }
 }

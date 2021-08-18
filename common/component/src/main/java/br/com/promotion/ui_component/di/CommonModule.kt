@@ -6,5 +6,7 @@ import org.koin.dsl.module
 
 
 val commonModule = module {
-    factory<AppPreferences> { AppPreferencesImpl(get()) }
+    factory<AppPreferences> {
+        AppPreferencesImpl(context = get())
+    }
 }

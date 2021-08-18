@@ -18,6 +18,8 @@
     <string name="text_terms_politic">Ao se registrar você concorda com as \nPolíticas de termos e uso.</string>
     <string name="text_button_new_register">Ainda não tem uma conta? \nRegiste-se aqui</string>
     <string name="text_reset_password_title">Esqueceu sua senha?</string>
-    <string name="text_subtitle_reset_password">Ao selecionar redefinir senha um e-mail será enviado a você</string>
-    <string name="text_subtitle_reset_password_button">Alterar senha</string>
+    <string name="text_subtitle_reset_password">Ao clicar em enviar e-mail, um e-mail será enviado a você para que possa ser feito o registro de uma nova senha.</string>
+    <string name="text_subtitle_reset_password_button">Enviar e-mail</string>
+    <string name="welcome_subtitle_reset_password">Esqueceu sua senha? não tem problema, digite seu e-mail que cuidaremos disso para você.</string>
+    <string name="welcome_subtitle_register">Faça o cadastro para conhecer o melhor app de promoções que existe, não fique fora dessa.</string>
 </resources>

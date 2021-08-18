@@ -4,13 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import br.com.promotion.login.R
 import br.com.promotion.login.databinding.FragmentAuthenticationBinding
 import br.com.promotion.login.ui.viewmodel.AuthenticationViewModel
 import br.com.promotion.login.ui.viewmodel.model.AuthenticationAction
 import br.com.promotion.login.ui.viewmodel.model.AuthenticationState
+import br.com.promotion.ui_component.extension.addOnSelecteListener
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -69,25 +70,40 @@ class AuthenticationFragment : Fragment() {
                 is AuthenticationAction.ShowSuccessMessage -> {
                     showSnackBarDialog(it.message)
                 }
+                AuthenticationAction.OnBackPressed -> {
+                    requireActivity().finish()
+                }
             }
         }
     }
 
     private fun setupListeners() {
+        prepareViews()
+
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
+            viewModel.onBackPressed()
+        }
+
         with(binding) {
+            tabbar.addOnSelecteListener {
+                when (it.position) {
+                    POSITION_LOGIN -> viewModel.tapToLogin()
+                    POSITION_REGISTER -> viewModel.tapToNewRegister()
+                }
+            }
+
             btnNext.setOnClickListener {
                 viewModel.tapOnNext()
-            }
-            tabbar.addTab(R.string.text_login_title) {
-                viewModel.tapToLogin()
-            }
-            tabbar.addTab(R.string.text_title_new_register) {
-                viewModel.tapToNewRegister()
             }
 
             loginInclude.textForgotPassword.setOnClickListener {
                 viewModel.tapOnResetPassword()
             }
         }
+    }
+
+    companion object {
+        const val POSITION_LOGIN = 0
+        const val POSITION_REGISTER = 1
     }
 }

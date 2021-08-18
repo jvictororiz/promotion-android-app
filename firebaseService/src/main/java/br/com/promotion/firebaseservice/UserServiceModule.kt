@@ -10,14 +10,12 @@ val userServiceModule = module {
         FirebaseAuth.getInstance()
     }
     factory {
-        FirebaseFirestore.getInstance().document(DATABASE_USER)
+        FirebaseFirestore.getInstance()
     }
     factory<UserService> {
         UserServiceImpl(
-            authentication = get(),
-            database = get()
+            authentication = FirebaseAuth.getInstance(),
+            database = FirebaseFirestore.getInstance()
         )
     }
 }
-
-private const val DATABASE_USER = "users"
