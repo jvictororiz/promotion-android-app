@@ -1,11 +1,11 @@
 package br.com.promotion.login.data.remote
 
-import br.com.promotion.login.data.remote.contract.AuthenticationRemoteDataSource
 import br.com.promotion.firebaseservice.UserService
+import br.com.promotion.login.data.remote.contract.AuthenticationRemoteDataSource
+import br.com.promotion.login.domain.exception.DefaultException
+import br.com.promotion.login.domain.exception.NetworkException
 import br.com.promotion.model.data.UserDTO
-import br.com.promotion.model.domain.User
 import io.reactivex.Completable
-import io.reactivex.Single
 
 class UserRemoteDataSourceImpl(private val service: UserService) : AuthenticationRemoteDataSource {
     override fun doLogin(email: String, password: String): Completable {

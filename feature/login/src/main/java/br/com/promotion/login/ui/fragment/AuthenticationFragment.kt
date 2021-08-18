@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import br.com.promotion.login.R
-import br.com.promotion.login.databinding.FragmentAuthenticatorBinding
+import br.com.promotion.login.databinding.FragmentAuthenticationBinding
 import br.com.promotion.login.ui.viewmodel.AuthenticationViewModel
 import br.com.promotion.login.ui.viewmodel.model.AuthenticationAction
 import br.com.promotion.login.ui.viewmodel.model.AuthenticationState
@@ -15,7 +15,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class AuthenticationFragment : Fragment() {
-    lateinit var binding: FragmentAuthenticatorBinding
+    lateinit var binding: FragmentAuthenticationBinding
     val viewModel: AuthenticationViewModel by viewModel()
 
 
@@ -23,7 +23,7 @@ class AuthenticationFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentAuthenticatorBinding.inflate(inflater, container, false)
+        binding = FragmentAuthenticationBinding.inflate(inflater, container, false)
         return binding.root
     }
 
