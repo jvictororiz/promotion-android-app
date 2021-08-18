@@ -35,7 +35,7 @@ class UserServiceImpl(
                 .set(user)
                 .complete(emitter)
         }.addOnFailureListener {
-            emitter.onError(
+            emitter.tryOnError(
                 when (it) {
                     is IOException -> InternetConnectionException(it.message)
                     else -> UserAlreadyRegistered(it.message)

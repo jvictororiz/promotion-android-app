@@ -9,11 +9,13 @@ import br.com.promotion.login.ui.fragment.AuthenticationFragment.Companion.POSIT
 import br.com.promotion.login.ui.fragment.AuthenticationFragment.Companion.POSITION_REGISTER
 import br.com.promotion.login.ui.viewmodel.model.AuthenticationState
 import br.com.promotion.model.domain.User
+import br.com.promotion.ui_component.extension.setOnTouchOrFocusListener
 import com.google.android.material.snackbar.Snackbar
 
 fun AuthenticationFragment.stateScreenResetPassword(authenticationState: AuthenticationState) {
     with(binding) {
         pbLoad.isVisible = false
+        btnNext.isVisible = true
         newRegisterInclude.root.isVisible = false
         loginInclude.root.isVisible = false
         loginInclude.root.isInvisible = true
@@ -29,6 +31,7 @@ fun AuthenticationFragment.stateScreenResetPassword(authenticationState: Authent
 fun AuthenticationFragment.stateScreenLogin(authenticationState: AuthenticationState) {
     with(binding) {
         pbLoad.isVisible = false
+        btnNext.isVisible = true
         resetPasswordInclude.root.isVisible = false
         newRegisterInclude.root.isVisible = false
         loginInclude.root.isInvisible = true
@@ -37,7 +40,7 @@ fun AuthenticationFragment.stateScreenLogin(authenticationState: AuthenticationS
         btnNext.text = getString(R.string.text_enter_login)
         labelSubtitle.text = getString(R.string.welcome_subtitle_login)
         with(tabbar.getTabAt(POSITION_LOGIN)) {
-            if(this?.isSelected == false) select()
+            if (this?.isSelected == false) select()
         }
         if (authenticationState.hasError()) showError()
     }
@@ -47,6 +50,7 @@ fun AuthenticationFragment.stateScreenLogin(authenticationState: AuthenticationS
 fun AuthenticationFragment.stateScreenRegister(authenticationState: AuthenticationState) {
     with(binding) {
         pbLoad.isVisible = false
+        btnNext.isVisible = true
         resetPasswordInclude.root.isVisible = false
         loginInclude.root.isVisible = false
         newRegisterInclude.root.isInvisible = true
@@ -55,7 +59,7 @@ fun AuthenticationFragment.stateScreenRegister(authenticationState: Authenticati
         btnNext.text = getString(R.string.text_title_new_register)
         labelSubtitle.text = getString(R.string.welcome_subtitle_register)
         with(tabbar.getTabAt(POSITION_REGISTER)) {
-            if(this?.isSelected == false) select()
+            if (this?.isSelected == false) select()
         }
         if (authenticationState.hasError()) showError()
     }
@@ -63,39 +67,34 @@ fun AuthenticationFragment.stateScreenRegister(authenticationState: Authenticati
 
 fun AuthenticationFragment.stateLoading() {
     binding.pbLoad.isVisible = true
+    binding.btnNext.isVisible = false
 }
 
 fun AuthenticationFragment.doOnLogin() {
-    binding.btnNext.setOnClickListener {
-        val email = binding.loginInclude.etEmail.text.toString()
-        val password = binding.loginInclude.etPassword.text.toString()
-        if (binding.loginInclude.checkboxRememberPassword.isChecked) {
-            viewModel.doOnLogin(
-                email,
-                password,
-                binding.loginInclude.checkboxRememberPassword.isChecked
-            )
-        } else {
-            viewModel.doOnBiometricLogin(binding.loginInclude.checkboxRememberPassword.isChecked)
-        }
+    val email = binding.loginInclude.etEmail.text.toString()
+    val password = binding.loginInclude.etPassword.text.toString()
+    if (binding.loginInclude.checkboxRememberPassword.isChecked) {
+        viewModel.doOnLogin(
+            email,
+            password,
+            binding.loginInclude.checkboxRememberPassword.isChecked
+        )
+    } else {
+        viewModel.doOnBiometricLogin(binding.loginInclude.checkboxRememberPassword.isChecked)
     }
 }
 
 fun AuthenticationFragment.doRegister() {
-    binding.btnNext.setOnClickListener {
-        val name = binding.newRegisterInclude.etName.text.toString()
-        val email = binding.newRegisterInclude.etEmail.text.toString()
-        val password = binding.newRegisterInclude.etPassword.text.toString()
-        val user = User(name, email, password)
-        viewModel.registerUser(user)
-    }
+    val name = binding.newRegisterInclude.etName.text.toString()
+    val email = binding.newRegisterInclude.etEmail.text.toString()
+    val password = binding.newRegisterInclude.etPassword.text.toString()
+    val user = User(name, email, password)
+    viewModel.registerUser(user)
 }
 
 fun AuthenticationFragment.doResetPassword() {
-    binding.btnNext.setOnClickListener {
-        val email = binding.resetPasswordInclude.etEmail.text.toString()
-        viewModel.resetPassword(email)
-    }
+    val email = binding.resetPasswordInclude.etEmail.text.toString()
+    viewModel.resetPassword(email)
 }
 
 fun AuthenticationFragment.showError() {
@@ -104,22 +103,22 @@ fun AuthenticationFragment.showError() {
 
 fun AuthenticationFragment.prepareViews() {
     with(binding) {
-        loginInclude.etEmail.setOnFocusChangeListener { _, _ ->
+        loginInclude.etEmail.setOnTouchOrFocusListener {
             scrowView.scrollTo(0, body.bottom)
         }
-        loginInclude.etPassword.setOnFocusChangeListener { _, _ ->
+        loginInclude.etPassword.setOnTouchOrFocusListener {
             scrowView.scrollTo(0, body.bottom)
         }
-        newRegisterInclude.etEmail.setOnFocusChangeListener { _, _ ->
+        newRegisterInclude.etEmail.setOnTouchOrFocusListener {
             scrowView.scrollTo(0, body.bottom)
         }
-        newRegisterInclude.etName.setOnFocusChangeListener { _, _ ->
+        newRegisterInclude.etName.setOnTouchOrFocusListener {
             scrowView.scrollTo(0, body.bottom)
         }
-        newRegisterInclude.etPassword.setOnFocusChangeListener { _, _ ->
+        newRegisterInclude.etPassword.setOnTouchOrFocusListener {
             scrowView.scrollTo(0, body.bottom)
         }
-        resetPasswordInclude.etEmail.setOnFocusChangeListener { _, _ ->
+        resetPasswordInclude.etEmail.setOnTouchOrFocusListener {
             scrowView.scrollTo(0, body.bottom)
         }
     }

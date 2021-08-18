@@ -1,5 +1,6 @@
 package br.com.promotion.ui_component.extension
 
+import android.widget.EditText
 import com.google.android.material.tabs.TabLayout
 
 fun TabLayout.addOnSelecteListener(block: (TabLayout.Tab) -> Unit) {
@@ -14,4 +15,13 @@ fun TabLayout.addOnSelecteListener(block: (TabLayout.Tab) -> Unit) {
             block.invoke(tab)
         }
     })
+}
+
+fun EditText.setOnTouchOrFocusListener(block: () -> Unit) {
+    setOnFocusChangeListener { _, _ ->
+        block.invoke()
+    }
+    setOnClickListener {
+        block.invoke()
+    }
 }
