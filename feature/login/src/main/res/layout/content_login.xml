@@ -44,7 +44,7 @@
             android:id="@+id/text_remember_passowrd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/marginStartEditText"
+            android:layout_marginStart="@dimen/dimen_margin_01"
             android:text="@string/text_remember_passowrd"
             android:textColor="@color/slowGray"
             android:textSize="14sp"
