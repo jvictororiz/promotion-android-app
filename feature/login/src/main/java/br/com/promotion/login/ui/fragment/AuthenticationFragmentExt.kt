@@ -1,6 +1,5 @@
 package br.com.promotion.login.ui.fragment
 
-import android.view.View
 import androidx.annotation.StringRes
 import androidx.core.view.isVisible
 import br.com.promotion.login.R
@@ -11,7 +10,9 @@ import com.google.android.material.tabs.TabLayout
 
 fun AuthenticationFragment.stateScreenResetPassword(authenticationState: AuthenticationState) {
     binding.pbLoad.isVisible = false
-    binding.resetPasswordInclude.root.visibility = View.VISIBLE
+    binding.resetPasswordInclude.root.isVisible = true
+    binding.newRegisterInclude.root.isVisible = false
+    binding.loginInclude.root.isVisible = false
     binding.btnNext.text = getString(R.string.text_subtitle_reset_password_button)
     if (authenticationState.hasError()) showError()
 
@@ -19,23 +20,26 @@ fun AuthenticationFragment.stateScreenResetPassword(authenticationState: Authent
 
 fun AuthenticationFragment.stateScreenRegister(authenticationState: AuthenticationState) {
     binding.pbLoad.isVisible = false
-    binding.newRegisterInclude.root.visibility = View.VISIBLE
-    if (authenticationState.hasError()) showError()
+    binding.resetPasswordInclude.root.isVisible = false
+    binding.newRegisterInclude.root.isVisible = true
+    binding.loginInclude.root.isVisible = false
     binding.btnNext.text = getString(R.string.text_button_new_register)
+    if (authenticationState.hasError()) showError()
 
 }
 
 
 fun AuthenticationFragment.stateScreenLogin(authenticationState: AuthenticationState) {
     binding.pbLoad.isVisible = false
-    binding.loginInclude.root.visibility = View.VISIBLE
-    if (authenticationState.hasError()) showError()
+    binding.resetPasswordInclude.root.isVisible = false
+    binding.newRegisterInclude.root.isVisible = false
+    binding.loginInclude.root.isVisible = true
     binding.btnNext.text = getString(R.string.text_enter_login)
+    if (authenticationState.hasError()) showError()
 }
 
 fun AuthenticationFragment.stateLoading() {
     binding.pbLoad.isVisible = true
-    TODO()
 }
 
 fun AuthenticationFragment.doOnLogin() {
@@ -69,7 +73,7 @@ fun AuthenticationFragment.doResetPassword() {
 }
 
 fun AuthenticationFragment.showError() {
-    binding.includeFooterError.isVisible = true
+    binding.includeFooterError.root.isVisible = true
 
 }
 
