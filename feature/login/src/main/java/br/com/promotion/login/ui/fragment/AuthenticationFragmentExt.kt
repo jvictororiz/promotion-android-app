@@ -12,6 +12,8 @@ import com.google.android.material.tabs.TabLayout
 fun AuthenticationFragment.stateScreenResetPassword(authenticationState: AuthenticationState) {
     binding.pbLoad.isVisible = false
     binding.resetPasswordInclude.root.visibility = View.VISIBLE
+    binding.newRegisterInclude.root.visibility = View.INVISIBLE
+    binding.loginInclude.root.visibility = View.INVISIBLE
     binding.btnNext.text = getString(R.string.text_subtitle_reset_password_button)
     if (authenticationState.hasError()) showError()
 
@@ -20,6 +22,8 @@ fun AuthenticationFragment.stateScreenResetPassword(authenticationState: Authent
 fun AuthenticationFragment.stateScreenRegister(authenticationState: AuthenticationState) {
     binding.pbLoad.isVisible = false
     binding.newRegisterInclude.root.visibility = View.VISIBLE
+    binding.resetPasswordInclude.root.visibility = View.INVISIBLE
+    binding.loginInclude.root.visibility = View.INVISIBLE
     if (authenticationState.hasError()) showError()
     binding.btnNext.text = getString(R.string.text_button_new_register)
 
@@ -29,6 +33,8 @@ fun AuthenticationFragment.stateScreenRegister(authenticationState: Authenticati
 fun AuthenticationFragment.stateScreenLogin(authenticationState: AuthenticationState) {
     binding.pbLoad.isVisible = false
     binding.loginInclude.root.visibility = View.VISIBLE
+    binding.newRegisterInclude.root.visibility = View.INVISIBLE
+    binding.resetPasswordInclude.root.visibility = View.INVISIBLE
     if (authenticationState.hasError()) showError()
     binding.btnNext.text = getString(R.string.text_enter_login)
 }
@@ -43,7 +49,11 @@ fun AuthenticationFragment.doOnLogin() {
         val email = binding.loginInclude.etEmail.text.toString()
         val password = binding.loginInclude.etPassword.text.toString()
         if (binding.loginInclude.checkboxRememberPassword.isChecked) {
-            viewModel.doOnLogin(email, password, binding.loginInclude.checkboxRememberPassword.isChecked)
+            viewModel.doOnLogin(
+                email,
+                password,
+                binding.loginInclude.checkboxRememberPassword.isChecked
+            )
         } else {
             viewModel.doOnBiometricLogin(binding.loginInclude.checkboxRememberPassword.isChecked)
         }
@@ -69,7 +79,7 @@ fun AuthenticationFragment.doResetPassword() {
 }
 
 fun AuthenticationFragment.showError() {
-    binding.includeFooterError.isVisible = true
+    binding.includeFooterError.root.isVisible = true
 
 }
 
