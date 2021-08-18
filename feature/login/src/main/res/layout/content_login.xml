@@ -8,36 +8,26 @@
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/et_email"
-            style="@style/PrimaryEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/marginStartEditText"
             android:layout_marginTop="@dimen/dimen_margin_01"
             android:layout_marginEnd="@dimen/marginEndEditText"
-            android:background="@drawable/shape_round_borders"
             android:drawableStart="@drawable/ic_email_vector"
-            android:drawablePadding="@dimen/dimen_drawable_padding"
             android:hint="@string/edit_text_email"
             android:inputType="textEmailAddress"
-            android:maxLines="1"
-            android:minLines="1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/et_password"
-            style="@style/PrimaryEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dimen_margin_02"
-            android:background="@drawable/shape_round_borders"
             android:drawableStart="@drawable/ic_padlock"
-            android:drawablePadding="@dimen/dimen_drawable_padding"
             android:hint="@string/edit_text_password"
             android:inputType="numberPassword"
-            android:maxLines="1"
-            android:minLines="1"
             app:layout_constraintLeft_toLeftOf="@id/et_email"
             app:layout_constraintRight_toRightOf="@+id/et_email"
             app:layout_constraintTop_toBottomOf="@id/et_email" />
@@ -62,17 +52,19 @@
             app:layout_constraintStart_toEndOf="@id/checkbox_remember_password"
             app:layout_constraintTop_toTopOf="@id/checkbox_remember_password" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/TextButton"
             android:id="@+id/text_forgot_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/marginEndEditText"
             android:text="@string/text_forgot_password"
             android:textColor="@color/slowGray"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@id/checkbox_remember_password"
+            android:textSize="12sp"
+            android:layout_marginTop="18dp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/checkbox_remember_password" />
+            app:layout_constraintTop_toBottomOf="@id/text_remember_passowrd" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
