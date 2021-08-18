@@ -24,6 +24,7 @@ class SplashActivity : AppCompatActivity() {
             .subscribeOn(Schedulers.io())
             .doOnSuccess {
                 startActivity(Intent(this, AuthenticationActivity::class.java))
+                finish()
             }.subscribe()
     }
 

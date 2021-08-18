@@ -34,6 +34,9 @@ dependencies {
 
     implementation project(path: ':common:model')
 
+    implementation "org.koin:koin-core:$koin_version"
+    implementation "org.koin:koin-android:$koin_version"
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.6.0'
     implementation 'com.google.firebase:firebase-firestore:23.0.3'

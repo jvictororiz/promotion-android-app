@@ -8,11 +8,11 @@ import org.koin.dsl.module
 
 
 val baseModule = module {
-    factory { br.com.promotion.lib.builders.ResourceManager(context = get()) }
+    factory { ResourceManager(context = get()) }
     factory {
         Room.databaseBuilder(
             androidApplication(),
-            br.com.promotion.lib.builders.AppDatabase::class.java,
+            AppDatabase::class.java,
             "AppDatabase"
         ).build()
     }
