@@ -37,4 +37,5 @@ val authenticationModule = module {
     factory<AuthenticationRemoteDataSource> {
         UserRemoteDataSourceImpl(service = get())
     }
+
 }

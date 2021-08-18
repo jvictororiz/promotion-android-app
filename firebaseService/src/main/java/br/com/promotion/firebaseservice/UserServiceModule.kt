@@ -1,7 +1,6 @@
 package br.com.promotion.firebaseservice
 
 import br.com.promotion.firebaseservice.service.UserServiceImpl
-import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import org.koin.dsl.module

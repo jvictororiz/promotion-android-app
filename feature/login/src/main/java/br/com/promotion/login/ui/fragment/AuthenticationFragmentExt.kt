@@ -47,7 +47,11 @@ fun AuthenticationFragment.doOnLogin() {
         val email = binding.loginInclude.etEmail.text.toString()
         val password = binding.loginInclude.etPassword.text.toString()
         if (binding.loginInclude.checkboxRememberPassword.isChecked) {
-            viewModel.doOnLogin(email, password, binding.loginInclude.checkboxRememberPassword.isChecked)
+            viewModel.doOnLogin(
+                email,
+                password,
+                binding.loginInclude.checkboxRememberPassword.isChecked
+            )
         } else {
             viewModel.doOnBiometricLogin(binding.loginInclude.checkboxRememberPassword.isChecked)
         }
