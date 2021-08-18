@@ -2,13 +2,6 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <data>
-
-        <variable
-            name="login"
-            type="br.com.promotion.model.domain.User" />
-    </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -27,7 +20,6 @@
             android:hint="@string/edit_text_email"
             android:inputType="textEmailAddress"
             android:maxLines="1"
-            android:text="@{login.email}"
             android:minLines="1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -45,7 +37,6 @@
             android:hint="@string/edit_text_password"
             android:inputType="numberPassword"
             android:maxLines="1"
-            android:text="@{login.password}"
             android:minLines="1"
             app:layout_constraintLeft_toLeftOf="@id/et_email"
             app:layout_constraintRight_toRightOf="@+id/et_email"
