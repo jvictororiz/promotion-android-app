@@ -13,6 +13,7 @@
         android:roundIcon="@drawable/ic_app"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        tools:node="merge"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity
             android:name=".base.ui.SplashActivity"
