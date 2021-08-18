@@ -4,7 +4,8 @@
     <string name="error_default_server">Não foi possível conectar ao servidor, por favor, tente novamente mais tarde</string>
     <string name="retry">Tentar</string>
     <string name="app_name">Promotion</string>
-    <string name="welcome_login">Seja bem vindo</string>
+    <string name="welcome_login">Seja bem vindo!</string>
+    <string name="welcome_subtitle_login">Realize o login e ganhe descontos em diversos estabelecimentos, não fique fora dessa.</string>
     <string name="edit_text_email">Email</string>
     <string name="edit_text_name">Nome</string>
     <string name="edit_text_password">Senha</string>
