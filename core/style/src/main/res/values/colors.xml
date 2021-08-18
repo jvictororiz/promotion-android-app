@@ -3,9 +3,10 @@
     <color name="colorPrimary">#E87534</color>
     <color name="black">#000</color>
     <color name="colorPrimaryDark">#1D1E20</color>
-    <color name="colorAccent">#11C76F</color>
+    <color name="colorAccent">#E87534</color>
     <color name="colorDetail">#80FFFFFF</color>
     <color name="white">#fff</color>
     <color name="darkGray">#F01B1A1A</color>
-    <color name="grayVector">#515151</color>
+    <color name="mediumGray">#F0494848</color>
+    <color name="slowGray">#737373</color>
 </resources>

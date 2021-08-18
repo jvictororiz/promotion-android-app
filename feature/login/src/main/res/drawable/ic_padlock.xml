@@ -6,21 +6,21 @@
     android:viewportHeight="32">
 
     <path
-        android:strokeColor="@color/grayVector"
+        android:strokeColor="@color/slowGray"
         android:strokeWidth="2"
         android:strokeLineJoin="round"
         android:strokeMiterLimit="10"
         android:strokeLineCap="round"
         android:pathData="M9,13h17v16H6V13H9v-3c0-3.8,3.1-7,7-7h0c3.8,0,7,3.1,7,7v3" />
     <path
-        android:strokeColor="@color/grayVector"
+        android:strokeColor="@color/slowGray"
         android:strokeWidth="2"
         android:strokeLineJoin="round"
         android:strokeMiterLimit="10"
         android:strokeLineCap="round"
         android:pathData="M 16 22 L 16 24" />
     <path
-        android:strokeColor="@color/grayVector"
+        android:strokeColor="@color/slowGray"
         android:strokeWidth="2"
         android:strokeLineJoin="round"
         android:strokeMiterLimit="10"

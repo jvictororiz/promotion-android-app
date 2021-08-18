@@ -11,7 +11,6 @@ import br.com.promotion.login.databinding.FragmentAuthenticatorBinding
 import br.com.promotion.login.ui.viewmodel.AuthenticationViewModel
 import br.com.promotion.login.ui.viewmodel.model.AuthenticationAction
 import br.com.promotion.login.ui.viewmodel.model.AuthenticationState
-import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 

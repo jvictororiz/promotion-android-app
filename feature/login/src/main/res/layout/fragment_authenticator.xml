@@ -5,7 +5,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <ScrollView
             android:id="@+id/scrow_view"
@@ -30,10 +30,11 @@
 
                 <TextView
                     android:id="@+id/label_welcome"
+                    style="@style/PrimaryTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/marginStart"
-                    android:layout_marginTop="100dp"
+                    android:layout_marginTop="70dp"
                     android:gravity="center"
                     android:text="@string/welcome_login"
                     android:textColor="@color/white"
@@ -47,8 +48,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    app:cardCornerRadius="10dp"
-                    app:cardElevation="10dp"
+                    app:cardCornerRadius="6dp"
+                    app:cardElevation="4dp"
                     app:cardUseCompatPadding="true"
                     app:contentPaddingBottom="15dp"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -61,34 +62,35 @@
 
                         <com.google.android.material.tabs.TabLayout
                             android:id="@+id/tabbar"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
                             android:layout_width="match_parent"
-                            android:layout_height="55dp"/>
+                            android:layout_height="55dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         <include
                             android:id="@+id/login_include"
                             layout="@layout/content_login"
-                            app:layout_constraintTop_toBottomOf="@+id/tabbar"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:visibility="visible" />
+                            android:visibility="visible"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tabbar" />
 
                         <include
                             android:id="@+id/new_register_include"
-                            app:layout_constraintTop_toBottomOf="@+id/tabbar"
                             layout="@layout/content_new_register"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:visibility="gone" />
+                            android:visibility="gone"
+                            app:layout_constraintTop_toBottomOf="@+id/tabbar" />
 
                         <include
                             android:id="@+id/reset_password_include"
-                            app:layout_constraintTop_toBottomOf="@+id/tabbar"
-                            layout="@layout/fragment_reset_password"
+                            layout="@layout/content_reset_password"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:visibility="gone" />
+                            android:visibility="gone"
+                            app:layout_constraintTop_toBottomOf="@+id/tabbar" />
 
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -101,7 +103,6 @@
                     android:id="@+id/pb_load"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:indeterminateDrawable="@drawable/shape_progress_bar"
                     android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -128,11 +129,10 @@
 
         <include
             android:id="@+id/include_footer_error"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:visibility="invisible"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
