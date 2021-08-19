@@ -39,17 +39,21 @@ class AuthenticationRepositoryImpl(
         doLogin(email, password, remember)
     }.subscribeOn(Schedulers.newThread())
         .observeOn(AndroidSchedulers.mainThread())
+        .onErrorComplete()
+
 
     override fun resetPassword(email: String): Completable {
         return remoteDataSource.resetPassword(email)
             .subscribeOn(Schedulers.newThread())
             .observeOn(AndroidSchedulers.mainThread())
+
     }
 
-    override fun registerUser(user: User): Completable {
+    override fun registerUser(user: User, password: String): Completable {
         return remoteDataSource.registerUser(user.toUserDTO())
             .subscribeOn(Schedulers.newThread())
             .observeOn(AndroidSchedulers.mainThread())
+
     }
 
 }

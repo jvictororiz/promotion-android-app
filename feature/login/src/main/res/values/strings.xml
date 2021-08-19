@@ -9,6 +9,7 @@
     <string name="edit_text_email">Email</string>
     <string name="edit_text_name">Nome</string>
     <string name="edit_text_password">Senha</string>
+    <string name="edit_text_confirm_password">Confrimar senha</string>
     <string name="text_login_title">Login</string>
     <string name="text_remember_passowrd">Lembrar senha</string>
     <string name="text_forgot_password">Esqueceu sua senha?</string>
@@ -22,5 +23,11 @@
     <string name="text_subtitle_reset_password_button">Enviar e-mail</string>
     <string name="welcome_subtitle_reset_password">Esqueceu sua senha? não tem problema, digite seu e-mail que cuidaremos disso para você.</string>
     <string name="welcome_subtitle_register">Faça o cadastro para conhecer o melhor app de promoções que existe, não fique fora dessa.</string>
+    <string name="message_email_or_password_empty">Você precisa digitar email e senha para que o login seja realizado.</string>
+    <string name="message_email_invalid">Por favor, digite um email válido</string>
+    <string name="message_password_invalid">Atenção! Sua senha deve conter 6 dígitos</string>
+    <string name="message_empty_biometric">Você ainda não tem uma biometria cadastrada.</string>
+    <string name="message_data_empty_register">Você precisa difgitar todas as informações para realizar o cadastro.</string>
+    <string name="message_password_is_not_equals">As senhas não coincidem. Por favor digite novamente.</string>
     <string name="success_login">Usuário cadastrado com sucesso, faça o login para continuar</string>
 </resources>

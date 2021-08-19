@@ -23,7 +23,12 @@ fun AuthenticationFragment.stateScreenResetPassword(authenticationState: Authent
         resetPasswordInclude.root.isVisible = true
         btnNext.text = getString(R.string.text_subtitle_reset_password_button)
         labelSubtitle.text = getString(R.string.welcome_subtitle_reset_password)
-        if (authenticationState.hasError()) showError()
+        if (authenticationState.hasError()) {
+            showError(
+                authenticationState.error?.messageError,
+                authenticationState.error?.retryMessage
+            )
+        }
     }
 
 }
@@ -42,7 +47,12 @@ fun AuthenticationFragment.stateScreenLogin(authenticationState: AuthenticationS
         with(tabbar.getTabAt(POSITION_LOGIN)) {
             if (this?.isSelected == false) select()
         }
-        if (authenticationState.hasError()) showError()
+        if (authenticationState.hasError()) {
+            showError(
+                authenticationState.error?.messageError,
+                authenticationState.error?.retryMessage
+            )
+        }
     }
 }
 
@@ -61,7 +71,12 @@ fun AuthenticationFragment.stateScreenRegister(authenticationState: Authenticati
         with(tabbar.getTabAt(POSITION_REGISTER)) {
             if (this?.isSelected == false) select()
         }
-        if (authenticationState.hasError()) showError()
+        if (authenticationState.hasError()) {
+            showError(
+                authenticationState.error?.messageError,
+                authenticationState.error?.retryMessage
+            )
+        }
     }
 }
 
@@ -88,8 +103,10 @@ fun AuthenticationFragment.doRegister() {
     val name = binding.newRegisterInclude.etName.text.toString()
     val email = binding.newRegisterInclude.etEmail.text.toString()
     val password = binding.newRegisterInclude.etPassword.text.toString()
+    val confirmPassword = binding.newRegisterInclude.confirmPassword.text.toString()
+
     val user = User(name, email, password)
-    viewModel.registerUser(user)
+    viewModel.registerUser(user,confirmPassword)
 }
 
 fun AuthenticationFragment.doResetPassword() {
@@ -97,8 +114,11 @@ fun AuthenticationFragment.doResetPassword() {
     viewModel.resetPassword(email)
 }
 
-fun AuthenticationFragment.showError() {
+fun AuthenticationFragment.showError(messageError: String?, buttonError: String?) {
     binding.includeFooterError.root.isVisible = true
+    binding.includeFooterError.tvMessageError.text = messageError
+    binding.includeFooterError.btnRetry.text = buttonError
+
 }
 
 fun AuthenticationFragment.prepareViews() {
@@ -123,7 +143,6 @@ fun AuthenticationFragment.prepareViews() {
         }
     }
 }
-
 
 fun AuthenticationFragment.showSnackBarDialog(text: String) {
     Snackbar.make(binding.root, text, Snackbar.LENGTH_SHORT)

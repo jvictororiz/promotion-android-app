@@ -71,8 +71,8 @@ class AuthenticationViewModel(
             )
     }
 
-    fun registerUser(user: User) {
-        authenticationUseCase.registerUser(user)
+    fun registerUser(user: User,confirmPassword: String) {
+        authenticationUseCase.registerUser(user,confirmPassword)
             .doOnSubscribe(disposable::add)
             .subscribeSafe(
                 onComplete = {
