@@ -2,6 +2,7 @@ package br.com.promotion.login.ui.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import br.com.promotion.firebaseservice.LogService
 import br.com.promotion.lib.builders.ResourceManager
 import br.com.promotion.login.R
 import br.com.promotion.login.domain.usecase.contract.AuthenticationUseCase
@@ -16,14 +17,15 @@ import br.com.promotion.ui_component.extension.subscribeSafe
 class AuthenticationViewModel(
     private val resource: ResourceManager,
     private val authenticationUseCase: AuthenticationUseCase,
+    private val logService: LogService,
     private val state: MutableLiveData<AuthenticationState>,
     private val action: MutableLiveData<AuthenticationAction>
 ) : BaseViewModel<AuthenticationState>() {
-
     val stateLiveData: LiveData<AuthenticationState> get() = state
     val actionLiveData: LiveData<AuthenticationAction> get() = action
 
     init {
+        logService.trackScreen(resource.message(R.string.metric_screen))
         notifyState {
             LoginState(authenticationUseCase.isRemember())
         }
@@ -36,9 +38,11 @@ class AuthenticationViewModel(
             .doOnSubscribe(disposable::add)
             .subscribeSafe(
                 onComplete = {
+                    logService.trackSuccess(resource.message(R.string.metric_login))
                     notifyAction { AuthenticationAction.GoToHome }
                 },
                 onError = {
+                    logService.trackError(resource.message(R.string.metric_login), it)
                     showError(it)
                 }
             )
@@ -50,9 +54,14 @@ class AuthenticationViewModel(
             .doOnSubscribe(disposable::add)
             .subscribeSafe(
                 onComplete = {
+                    logService.trackSuccess(resource.message(R.string.metric_login_with_biometric))
                     notifyAction { AuthenticationAction.GoToHome }
                 },
                 onError = {
+                    logService.trackError(
+                        resource.message(R.string.metric_login_with_biometric),
+                        it
+                    )
                     showError(it)
                 }
             )
@@ -63,9 +72,11 @@ class AuthenticationViewModel(
             .doOnSubscribe(disposable::add)
             .subscribeSafe(
                 onComplete = {
-                    notifyAction { AuthenticationAction.ShowMessage("mensagem karina") }
+                    logService.trackSuccess(resource.message(R.string.metric_reset_password))
+                    notifyAction { AuthenticationAction.ShowMessage(resource.message(R.string.success_reset_password)) }
                 },
                 onError = {
+                    logService.trackError(resource.message(R.string.metric_reset_password), it)
                     showError(it)
                 }
             )
@@ -76,10 +87,12 @@ class AuthenticationViewModel(
             .doOnSubscribe(disposable::add)
             .subscribeSafe(
                 onComplete = {
+                    logService.trackSuccess(resource.message(R.string.metric_register))
                     notifyAction { AuthenticationAction.ShowMessage(resource.message(R.string.success_login)) }
                     notifyAction { AuthenticationAction.OnDoLogin }
                 },
                 onError = {
+                    logService.trackError(resource.message(R.string.metric_register), it)
                     showError(it)
                 }
             )
@@ -87,9 +100,18 @@ class AuthenticationViewModel(
 
     fun tapOnNext() {
         when (state.value) {
-            is LoginState -> notifyAction { AuthenticationAction.OnDoLogin }
-            is AuthenticationState.RegisterState -> notifyAction { AuthenticationAction.OnRegister }
-            is AuthenticationState.ResetPasswordState -> notifyAction { AuthenticationAction.OnResetPassword }
+            is LoginState -> notifyAction {
+                logService.trackClick(resource.message(R.string.metric_login))
+                AuthenticationAction.OnDoLogin
+            }
+            is AuthenticationState.RegisterState -> notifyAction {
+                logService.trackClick(resource.message(R.string.metric_register))
+                AuthenticationAction.OnRegister
+            }
+            is AuthenticationState.ResetPasswordState -> notifyAction {
+                logService.trackClick(resource.message(R.string.metric_reset_password))
+                AuthenticationAction.OnResetPassword
+            }
         }
     }
 
@@ -97,7 +119,6 @@ class AuthenticationViewModel(
         notifyState { LoginState() }
     }
 
-    //
     fun tapToNewRegister() {
         notifyState { AuthenticationState.RegisterState }
     }

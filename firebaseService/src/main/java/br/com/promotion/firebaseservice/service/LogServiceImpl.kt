@@ -36,10 +36,10 @@ internal class LogServiceImpl(private val analytics: FirebaseAnalytics) : LogSer
         analytics.logEvent(LOG_TYPE_SUCCESS_SERVICE, bundle)
     }
 
-    override fun trackError(local: String, exception: Exception) {
+    override fun trackError(local: String, exception: Throwable?) {
         val bundle = Bundle().apply {
             putString(LOG_LOCAL, local)
-            putString(LOG_ERROR, exception.message)
+            putString(LOG_ERROR, exception?.message)
         }
         analytics.logEvent(LOG_TYPE_ERRROR_SERVICE, bundle)
     }
