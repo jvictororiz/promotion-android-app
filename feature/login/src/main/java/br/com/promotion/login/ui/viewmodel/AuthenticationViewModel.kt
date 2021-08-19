@@ -3,12 +3,14 @@ package br.com.promotion.login.ui.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import br.com.promotion.lib.builders.ResourceManager
+import br.com.promotion.login.R
 import br.com.promotion.login.domain.usecase.contract.AuthenticationUseCase
 import br.com.promotion.login.ui.viewmodel.model.AuthenticationAction
 import br.com.promotion.login.ui.viewmodel.model.AuthenticationState
 import br.com.promotion.login.ui.viewmodel.model.AuthenticationState.LoginState
 import br.com.promotion.model.domain.User
 import br.com.promotion.ui_component.BaseViewModel
+import br.com.promotion.ui_component.extension.subscribeSafe
 
 
 class AuthenticationViewModel(
@@ -29,47 +31,58 @@ class AuthenticationViewModel(
 
     fun doOnLogin(email: String, password: String, remember: Boolean) {
         notifyState { AuthenticationState.LoadingState }
-        authenticationUseCase.doLogin(email, password, remember)
+        authenticationUseCase
+            .doLogin(email, password, remember)
             .doOnSubscribe(disposable::add)
-            .doOnError {
-                notifyState { state.value?.setError("teste", "tentar novamente") }
-            }.doOnComplete {
-                notifyAction { AuthenticationAction.GoToHome }
-            }.subscribe()
-
+            .subscribeSafe(
+                onComplete = {
+                    notifyAction { AuthenticationAction.GoToHome }
+                },
+                onError = {
+                    showError(it)
+                }
+            )
     }
 
     fun doOnBiometricLogin(remember: Boolean) {
         notifyState { AuthenticationState.LoadingState }
         authenticationUseCase.doLogin(remember)
             .doOnSubscribe(disposable::add)
-            .doOnError {
-                notifyState { state.value?.setError("teste", "tentar novamente") }
-            }.doOnComplete {
-                notifyAction { AuthenticationAction.GoToHome }
-            }.subscribe()
+            .subscribeSafe(
+                onComplete = {
+                    notifyAction { AuthenticationAction.GoToHome }
+                },
+                onError = {
+                    showError(it)
+                }
+            )
     }
 
     fun resetPassword(email: String) {
         authenticationUseCase.resetPassword(email)
             .doOnSubscribe(disposable::add)
-            .doOnError {
-                notifyState { state.value?.setError("teste", "tentar novamente") }
-            }.doOnComplete {
-                notifyAction { AuthenticationAction.ShowSuccessMessage("mensagem karina") }
-            }.subscribe()
+            .subscribeSafe(
+                onComplete = {
+                    notifyAction { AuthenticationAction.ShowSuccessMessage("mensagem karina") }
+                },
+                onError = {
+                    showError(it)
+                }
+            )
     }
 
     fun registerUser(user: User) {
         authenticationUseCase.registerUser(user)
             .doOnSubscribe(disposable::add)
-            .doOnError {
-                notifyState { state.value?.setError("teste", "tentar novamente") }
-            }.doOnComplete {
-                notifyAction { AuthenticationAction.ShowSuccessMessage("mensagem karina") }
-                notifyAction { AuthenticationAction.OnDoLogin }
-            }
-            .subscribe()
+            .subscribeSafe(
+                onComplete = {
+                    notifyAction { AuthenticationAction.ShowSuccessMessage(resource.message(R.string.success_login)) }
+                    notifyAction { AuthenticationAction.OnDoLogin }
+                },
+                onError = {
+                    showError(it)
+                }
+            )
     }
 
     fun tapOnNext() {
@@ -98,6 +111,15 @@ class AuthenticationViewModel(
             notifyAction { AuthenticationAction.OnBackPressed }
         } else {
             notifyState { LoginState() }
+        }
+    }
+
+    private fun showError(throwable: Throwable) {
+        notifyState {
+            state.value?.setError(
+                throwable.message.toString(),
+                resource.message(R.string.retry)
+            )
         }
     }
 

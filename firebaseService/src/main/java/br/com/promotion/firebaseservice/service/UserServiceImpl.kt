@@ -1,5 +1,6 @@
 package br.com.promotion.firebaseservice.service
 
+import br.com.promotion.firebaseservice.LogService
 import br.com.promotion.firebaseservice.UserService
 import br.com.promotion.firebaseservice.extension.InternetConnectionException
 import br.com.promotion.firebaseservice.extension.UserAlreadyRegistered
@@ -8,16 +9,16 @@ import br.com.promotion.firebaseservice.util.handleDefaultErrors
 import br.com.promotion.firebaseservice.util.single
 import br.com.promotion.model.data.UserDTO
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.database.FirebaseDatabase
 import io.reactivex.Completable
 import io.reactivex.Single
 import java.io.IOException
 
-class UserServiceImpl(
+internal class UserServiceImpl(
     private val authentication: FirebaseAuth,
-    database: FirebaseFirestore
+    database: FirebaseDatabase
 ) : UserService {
-    private val userTable = database.collection("users")
+    private val userTable = database.getReference(TABLE_USERS)
 
     override fun doLogin(email: String, password: String): Completable {
         return authentication
@@ -31,8 +32,8 @@ class UserServiceImpl(
             user.email, user.password
         ).addOnSuccessListener {
             userTable
-                .document(user.email)
-                .set(user)
+                .child(user.email)
+                .setValue(user)
                 .complete(emitter)
         }.addOnFailureListener {
             emitter.tryOnError(
@@ -53,17 +54,21 @@ class UserServiceImpl(
 
     override fun updateUser(userDTO: UserDTO): Completable {
         return userTable
-            .document(userDTO.email)
-            .set(userDTO)
+            .child(userDTO.email)
+            .setValue(userDTO)
             .complete()
             .handleDefaultErrors()
     }
 
     override fun getUser(email: String): Single<UserDTO> {
         return userTable
-            .document(email)
+            .child(email)
             .get()
             .single<UserDTO>()
             .handleDefaultErrors()
+    }
+
+    companion object {
+        internal const val TABLE_USERS = "users"
     }
 }

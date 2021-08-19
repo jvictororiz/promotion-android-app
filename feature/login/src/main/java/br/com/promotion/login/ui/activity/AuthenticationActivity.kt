@@ -2,7 +2,7 @@ package br.com.promotion.login.ui.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import br.com.promotion.firebaseservice.userServiceModule
+import br.com.promotion.firebaseservice.di.userServiceModule
 import br.com.promotion.login.R
 import br.com.promotion.login.di.authenticationModule
 import br.com.promotion.ui_component.di.commonModule

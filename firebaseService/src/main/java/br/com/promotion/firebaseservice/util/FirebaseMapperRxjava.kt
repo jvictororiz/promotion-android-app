@@ -2,7 +2,7 @@ package br.com.promotion.firebaseservice.util
 
 import br.com.promotion.firebaseservice.extension.ResultNullNotExpected
 import com.google.android.gms.tasks.Task
-import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.database.DataSnapshot
 import io.reactivex.Completable
 import io.reactivex.CompletableEmitter
 import io.reactivex.Single
@@ -21,9 +21,9 @@ internal fun <TaskType> Task<TaskType>.complete(emitter: CompletableEmitter) {
         .addOnFailureListener(emitter::onError)
 }
 
-internal inline fun <reified T> Task<DocumentSnapshot>.single() = Single.create<T> { emitter ->
+internal inline fun <reified T> Task<DataSnapshot>.single() = Single.create<T> { emitter ->
     addOnSuccessListener { dataSnapshot ->
-        val result = dataSnapshot.toObject(T::class.java)
+        val result = dataSnapshot.getValue(T::class.java)
         if (result != null) {
             emitter.onSuccess(result)
         } else {
