@@ -6,7 +6,7 @@ import io.reactivex.Completable
 interface AuthenticationRepository {
     fun doLogin(email: String, password: String, remember: Boolean): Completable
     fun resetPassword(email: String): Completable
-    fun registerUser(user: User): Completable
+    fun registerUser(user: User, password: String): Completable
     fun doLogin(remember: Boolean): Completable
     fun isRemember(): Boolean
 }

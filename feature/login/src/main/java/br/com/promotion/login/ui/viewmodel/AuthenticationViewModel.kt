@@ -60,8 +60,8 @@ class AuthenticationViewModel(
             }.subscribe()
     }
 
-    fun registerUser(user: User) {
-        authenticationUseCase.registerUser(user)
+    fun registerUser(user: User,confirmPassword: String) {
+        authenticationUseCase.registerUser(user,confirmPassword)
             .doOnSubscribe(disposable::add)
             .doOnError {
                 notifyState { state.value?.setError("teste", "tentar novamente") }

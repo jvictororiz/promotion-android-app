@@ -46,6 +46,18 @@
             app:layout_constraintRight_toRightOf="@+id/et_email"
             app:layout_constraintTop_toBottomOf="@id/et_email" />
 
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/confirm_password"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_margin_02"
+            android:drawableStart="@drawable/ic_padlock"
+            android:hint="@string/edit_text_confirm_password"
+            android:inputType="numberPassword"
+            app:layout_constraintLeft_toLeftOf="@id/et_email"
+            app:layout_constraintRight_toRightOf="@+id/et_email"
+            app:layout_constraintTop_toBottomOf="@id/et_password" />
+
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -54,7 +66,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:gravity="center"
             android:text="@string/text_terms_politic"
-            app:layout_constraintTop_toBottomOf="@id/et_password"
+            app:layout_constraintTop_toBottomOf="@id/confirm_password"
             android:layout_marginTop="@dimen/dimen_margin_03"
             android:layout_marginBottom="@dimen/dimen_margin_02"/>
     </androidx.constraintlayout.widget.ConstraintLayout>

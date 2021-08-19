@@ -22,7 +22,7 @@ val authenticationModule = module {
             action = MutableLiveData()
         )
     }
-    factory<AuthenticationUseCase> { AuthenticationUseCaseImpl(repository = get()) }
+    factory<AuthenticationUseCase> { AuthenticationUseCaseImpl(repository = get(), get()) }
 
     factory<AuthenticationRepository> {
         AuthenticationRepositoryImpl(

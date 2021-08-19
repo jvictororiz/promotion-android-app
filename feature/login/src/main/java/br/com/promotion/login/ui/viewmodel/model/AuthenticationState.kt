@@ -2,7 +2,7 @@ package br.com.promotion.login.ui.viewmodel.model
 
 sealed class AuthenticationState(
     private var hasError: Boolean = false,
-    private var error: ErrorMessage? = null
+    var error: ErrorMessage? = null
 ) {
     data class LoginState(val hasFingerprint: Boolean = false) : AuthenticationState()
     object RegisterState : AuthenticationState()
@@ -22,7 +22,7 @@ sealed class AuthenticationState(
         this.error = null
     }
 
-    private data class ErrorMessage(
+    data class ErrorMessage(
         val messageError: String,
         val retryMessage: String
     )
