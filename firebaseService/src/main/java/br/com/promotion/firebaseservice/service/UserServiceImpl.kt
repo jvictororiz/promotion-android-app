@@ -1,6 +1,5 @@
 package br.com.promotion.firebaseservice.service
 
-import br.com.promotion.firebaseservice.LogService
 import br.com.promotion.firebaseservice.UserService
 import br.com.promotion.firebaseservice.extension.InternetConnectionException
 import br.com.promotion.firebaseservice.extension.UserAlreadyRegistered

@@ -18,6 +18,7 @@ val authenticationModule = module {
         AuthenticationViewModel(
             authenticationUseCase = get(),
             resource = get(),
+            logService = get(),
             state = MutableLiveData(),
             action = MutableLiveData()
         )

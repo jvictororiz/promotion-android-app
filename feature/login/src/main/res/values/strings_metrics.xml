@@ -1,0 +1,7 @@
+<resources>
+    <string name="metric_screen">LoginActivity</string>
+    <string name="metric_login">login</string>
+    <string name="metric_login_with_biometric">login com biometria</string>
+    <string name="metric_reset_password">esqueci a senha</string>
+    <string name="metric_register">cadastro usuario</string>
+</resources>

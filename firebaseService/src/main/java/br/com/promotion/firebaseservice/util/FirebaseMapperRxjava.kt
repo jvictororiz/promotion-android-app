@@ -1,5 +1,6 @@
 package br.com.promotion.firebaseservice.util
 
+import br.com.promotion.firebaseservice.LogService
 import br.com.promotion.firebaseservice.extension.ResultNullNotExpected
 import com.google.android.gms.tasks.Task
 import com.google.firebase.database.DataSnapshot
@@ -10,9 +11,11 @@ import java.io.IOException
 
 
 internal fun <TaskType> Task<TaskType>.complete() = Completable.create { emitter ->
-    addOnSuccessListener { emitter.onComplete() }
-        .addOnCompleteListener { emitter.onComplete() }
-        .addOnFailureListener(emitter::onError)
+    addOnSuccessListener {
+        emitter.onComplete()
+    }.addOnCompleteListener {
+        emitter.onComplete()
+    }.addOnFailureListener(emitter::onError)
 }
 
 internal fun <TaskType> Task<TaskType>.complete(emitter: CompletableEmitter) {

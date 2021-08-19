@@ -5,5 +5,5 @@ interface LogService {
     fun trackScreen(nameScreen: String)
     fun trackOnBack(nameScreen: String)
     fun trackSuccess(nameService: String)
-    fun trackError(local: String, exception: Exception)
+    fun trackError(local: String, exception: Throwable?)
 }
