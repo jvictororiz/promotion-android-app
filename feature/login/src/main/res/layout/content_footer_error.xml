@@ -37,6 +37,7 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btn_retry"
             android:layout_width="0dp"
+            style="@style/TextButton"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="@+id/tvMessageError"
             app:layout_constraintEnd_toEndOf="parent"

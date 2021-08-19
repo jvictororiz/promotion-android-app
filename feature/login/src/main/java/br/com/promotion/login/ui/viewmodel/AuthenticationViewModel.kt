@@ -63,7 +63,7 @@ class AuthenticationViewModel(
             .doOnSubscribe(disposable::add)
             .subscribeSafe(
                 onComplete = {
-                    notifyAction { AuthenticationAction.ShowSuccessMessage("mensagem karina") }
+                    notifyAction { AuthenticationAction.ShowMessage("mensagem karina") }
                 },
                 onError = {
                     showError(it)
@@ -71,12 +71,12 @@ class AuthenticationViewModel(
             )
     }
 
-    fun registerUser(user: User,confirmPassword: String) {
-        authenticationUseCase.registerUser(user,confirmPassword)
+    fun registerUser(user: User, confirmPassword: String) {
+        authenticationUseCase.registerUser(user, confirmPassword)
             .doOnSubscribe(disposable::add)
             .subscribeSafe(
                 onComplete = {
-                    notifyAction { AuthenticationAction.ShowSuccessMessage(resource.message(R.string.success_login)) }
+                    notifyAction { AuthenticationAction.ShowMessage(resource.message(R.string.success_login)) }
                     notifyAction { AuthenticationAction.OnDoLogin }
                 },
                 onError = {
@@ -115,19 +115,16 @@ class AuthenticationViewModel(
     }
 
     private fun showError(throwable: Throwable) {
-        notifyState {
-            state.value?.setError(
-                throwable.message.toString(),
-                resource.message(R.string.retry)
-            )
+        notifyAction {
+            AuthenticationAction.ShowMessage(throwable.message.toString())
         }
     }
 
-    private fun notifyState(block: () -> AuthenticationState?) {
-        state.postValue(((block())))
+    private fun notifyState(block: () -> AuthenticationState) {
+        state.value = (((block())))
     }
 
     private fun notifyAction(block: () -> AuthenticationAction) {
-        action.postValue(((block())))
+        action.value = (((block())))
     }
 }

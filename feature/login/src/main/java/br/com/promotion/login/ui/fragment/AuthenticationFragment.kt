@@ -67,7 +67,7 @@ class AuthenticationFragment : Fragment() {
                 is AuthenticationAction.GoToHome -> {
                     findNavController()
                 }
-                is AuthenticationAction.ShowSuccessMessage -> {
+                is AuthenticationAction.ShowMessage -> {
                     showSnackBarDialog(it.message)
                 }
                 AuthenticationAction.OnBackPressed -> {

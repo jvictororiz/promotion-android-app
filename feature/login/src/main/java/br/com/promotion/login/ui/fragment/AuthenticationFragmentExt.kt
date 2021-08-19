@@ -30,7 +30,6 @@ fun AuthenticationFragment.stateScreenResetPassword(authenticationState: Authent
             )
         }
     }
-
 }
 
 fun AuthenticationFragment.stateScreenLogin(authenticationState: AuthenticationState) {
@@ -48,6 +47,7 @@ fun AuthenticationFragment.stateScreenLogin(authenticationState: AuthenticationS
             if (this?.isSelected == false) select()
         }
         if (authenticationState.hasError()) {
+            pbLoad.isVisible = false
             showError(
                 authenticationState.error?.messageError,
                 authenticationState.error?.retryMessage
@@ -118,7 +118,6 @@ fun AuthenticationFragment.showError(messageError: String?, buttonError: String?
     binding.includeFooterError.root.isVisible = true
     binding.includeFooterError.tvMessageError.text = messageError
     binding.includeFooterError.btnRetry.text = buttonError
-
 }
 
 fun AuthenticationFragment.prepareViews() {
@@ -145,6 +144,6 @@ fun AuthenticationFragment.prepareViews() {
 }
 
 fun AuthenticationFragment.showSnackBarDialog(text: String) {
-    Snackbar.make(binding.root, text, Snackbar.LENGTH_SHORT)
-        .show()
+    binding.pbLoad.isVisible = false
+    Snackbar.make(binding.body, text, Snackbar.LENGTH_SHORT).show()
 }

@@ -6,5 +6,5 @@ sealed class AuthenticationAction {
     object OnResetPassword : AuthenticationAction()
     object GoToHome : AuthenticationAction()
     object OnBackPressed : AuthenticationAction()
-    data class ShowSuccessMessage(val message: String) : AuthenticationAction()
+    data class ShowMessage(val message: String) : AuthenticationAction()
 }

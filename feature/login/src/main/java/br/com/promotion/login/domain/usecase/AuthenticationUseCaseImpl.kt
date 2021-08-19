@@ -31,11 +31,7 @@ class AuthenticationUseCaseImpl(
     }
 
     override fun doLogin(remember: Boolean): Completable {
-        return if (remember) {
-            repository.doLogin(remember)
-        } else {
-            Completable.error(BusinessLoginException(resource.message(R.string.message_empty_biometric)))
-        }
+        return repository.doLogin(remember)
     }
 
     override fun resetPassword(email: String): Completable {
