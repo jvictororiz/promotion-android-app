@@ -7,5 +7,8 @@
             android:windowSoftInputMode="adjustResize|stateHidden"
             android:theme="@style/AppTheme"
             android:name=".ui.activity.AuthenticationActivity" />
+        <activity
+            android:name=".ui.activity.PromotionActivity"
+            android:exported="true" />
     </application>
 </manifest>

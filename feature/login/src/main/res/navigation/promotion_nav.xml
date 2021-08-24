@@ -8,15 +8,6 @@
     <fragment
         android:id="@+id/fragmentUser"
         android:name="br.com.promotion.login.ui.fragment.AuthenticationFragment"
-        tools:layout="@layout/fragment_authentication" >
-        <action
-            android:id="@+id/action_fragmentUser_to_promotionActivity"
-            app:destination="@id/promotionActivity" />
-    </fragment>
-    <activity
-        android:id="@+id/promotionActivity"
-        android:name="br.com.promotion.login.ui.activity.PromotionActivity"
-        tools:layout="@layout/activity_promotion"
-        android:label="PromotionActivity" />
+        tools:layout="@layout/fragment_home" />
 
 </navigation>

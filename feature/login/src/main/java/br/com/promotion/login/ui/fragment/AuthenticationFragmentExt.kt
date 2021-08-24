@@ -118,6 +118,7 @@ fun AuthenticationFragment.showError(messageError: String?, buttonError: String?
     binding.includeFooterError.root.isVisible = true
     binding.includeFooterError.tvMessageError.text = messageError
     binding.includeFooterError.btnRetry.text = buttonError
+
 }
 
 fun AuthenticationFragment.showSnackBarDialog(text: String) {
