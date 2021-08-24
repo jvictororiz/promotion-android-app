@@ -120,29 +120,6 @@ fun AuthenticationFragment.showError(messageError: String?, buttonError: String?
     binding.includeFooterError.btnRetry.text = buttonError
 }
 
-fun AuthenticationFragment.prepareViews() {
-    with(binding) {
-        loginInclude.etEmail.setOnTouchOrFocusListener {
-            scrowView.scrollTo(0, body.bottom)
-        }
-        loginInclude.etPassword.setOnTouchOrFocusListener {
-            scrowView.scrollTo(0, body.bottom)
-        }
-        newRegisterInclude.etEmail.setOnTouchOrFocusListener {
-            scrowView.scrollTo(0, body.bottom)
-        }
-        newRegisterInclude.etName.setOnTouchOrFocusListener {
-            scrowView.scrollTo(0, body.bottom)
-        }
-        newRegisterInclude.etPassword.setOnTouchOrFocusListener {
-            scrowView.scrollTo(0, body.bottom)
-        }
-        resetPasswordInclude.etEmail.setOnTouchOrFocusListener {
-            scrowView.scrollTo(0, body.bottom)
-        }
-    }
-}
-
 fun AuthenticationFragment.showSnackBarDialog(text: String) {
     binding.pbLoad.isVisible = false
     Snackbar.make(binding.body, text, Snackbar.LENGTH_SHORT).show()

@@ -11,8 +11,11 @@
 
         <ScrollView
             android:id="@+id/scrow_view"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintBottom_toTopOf="@+id/btn_next"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/container_constraint"
@@ -45,7 +48,7 @@
                 <TextView
                     android:id="@+id/label_subtitle"
                     style="@style/SecundaryTitle"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/marginStart"
                     android:layout_marginEnd="@dimen/marginEnd"

@@ -12,6 +12,8 @@ import br.com.promotion.login.ui.viewmodel.model.AuthenticationState.LoginState
 import br.com.promotion.model.domain.User
 import br.com.promotion.ui_component.BaseViewModel
 import br.com.promotion.ui_component.extension.subscribeSafe
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 
 class AuthenticationViewModel(
@@ -36,6 +38,8 @@ class AuthenticationViewModel(
         authenticationUseCase
             .doLogin(email, password, remember)
             .doOnSubscribe(disposable::add)
+            .subscribeOn(Schedulers.newThread())
+            .observeOn(AndroidSchedulers.mainThread())
             .subscribeSafe(
                 onComplete = {
                     logService.trackSuccess(resource.message(R.string.metric_login))
@@ -52,6 +56,8 @@ class AuthenticationViewModel(
         notifyState { AuthenticationState.LoadingState }
         authenticationUseCase.doLogin(remember)
             .doOnSubscribe(disposable::add)
+            .subscribeOn(Schedulers.newThread())
+            .observeOn(AndroidSchedulers.mainThread())
             .subscribeSafe(
                 onComplete = {
                     logService.trackSuccess(resource.message(R.string.metric_login_with_biometric))
@@ -70,6 +76,8 @@ class AuthenticationViewModel(
     fun resetPassword(email: String) {
         authenticationUseCase.resetPassword(email)
             .doOnSubscribe(disposable::add)
+            .subscribeOn(Schedulers.newThread())
+            .observeOn(AndroidSchedulers.mainThread())
             .subscribeSafe(
                 onComplete = {
                     logService.trackSuccess(resource.message(R.string.metric_reset_password))
@@ -85,6 +93,8 @@ class AuthenticationViewModel(
     fun registerUser(user: User, confirmPassword: String) {
         authenticationUseCase.registerUser(user, confirmPassword)
             .doOnSubscribe(disposable::add)
+            .subscribeOn(Schedulers.newThread())
+            .observeOn(AndroidSchedulers.mainThread())
             .subscribeSafe(
                 onComplete = {
                     logService.trackSuccess(resource.message(R.string.metric_register))
@@ -142,10 +152,10 @@ class AuthenticationViewModel(
     }
 
     private fun notifyState(block: () -> AuthenticationState) {
-        state.value = (((block())))
+        state.value = (block())
     }
 
     private fun notifyAction(block: () -> AuthenticationAction) {
-        action.value = (((block())))
+        action.postValue(block())
     }
 }

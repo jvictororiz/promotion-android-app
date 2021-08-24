@@ -78,7 +78,6 @@ class AuthenticationFragment : Fragment() {
     }
 
     private fun setupListeners() {
-        prepareViews()
 
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner) {
             viewModel.onBackPressed()
