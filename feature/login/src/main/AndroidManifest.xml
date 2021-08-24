@@ -4,8 +4,12 @@
 
     <application>
         <activity
-            android:windowSoftInputMode="stateHidden"
+            android:name=".ui.activity.PromotionActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.activity.AuthenticationActivity"
             android:theme="@style/AppTheme"
-            android:name=".ui.activity.AuthenticationActivity" />
+            android:windowSoftInputMode="stateHidden" />
     </application>
+
 </manifest>
